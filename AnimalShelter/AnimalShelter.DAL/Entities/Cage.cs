@@ -8,15 +8,19 @@ using System.Threading.Tasks;
 
 namespace AnimalShelter.DAL.Entities
 {
-    class Cage
+    public class Cage
     {
         [Key]
         public int CageID { get; set; }
+        [Required]
+        [ForeignKey("Animal")]
         public int AnimalID { get; set; }
+        [Required(ErrorMessage ="This field is required!")]
         public string Label { get; set; }
+        [Required(ErrorMessage ="This field is required!")]
+        [Range(0.0,99.99, ErrorMessage ="Please enter a valid value for the dimensions of the cage!")]
         public double Dimension { get; set; }
 
-        [ForeignKey("Animal")]
         public virtual Animal Animal { get; set; }
         
     }

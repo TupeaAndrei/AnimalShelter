@@ -12,14 +12,19 @@ namespace AnimalShelter.DAL.Entities
     {
         [Key]
         public int JournalID { get; set; }
+        [ForeignKey("Animal")]
+        [Required]
         public int AnimalID { get; set; }
+        [Required]
         public DateTime Date { get; set; }
+        /// <summary>
+        /// Illness is optional, so if this is optional symptoms and treatment are optional as well, so this values are nullable.
+        /// </summary>
         public string Illness { get; set; }
         public List<String> Symptoms { get; set; }
         public List<String> Treatment { get; set; }
         public string OptionalDetails { get; set; }
 
-        [ForeignKey("AnimalID")]
         public virtual Animal Animal { get; set; }
 
     }

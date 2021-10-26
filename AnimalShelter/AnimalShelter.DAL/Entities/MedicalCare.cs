@@ -14,12 +14,17 @@ namespace AnimalShelter.DAL.Entities
         public int InterventionID { get; set; }
 
         [ForeignKey("Employee")]
+        [Required]
         public int EmployeeID { get; set; }
 
         [ForeignKey("Animal")]
+        [Required]
         public int AnimalID { get; set; }
+        [Required]
 
         public DateTime Date { get; set; }
+        [Required(ErrorMessage ="This field is required!")]
+        [MinLength(3,ErrorMessage ="This field min length is 3")]
         public string Service { get; set; }
 
         public virtual Animal Animal { get; set; }
