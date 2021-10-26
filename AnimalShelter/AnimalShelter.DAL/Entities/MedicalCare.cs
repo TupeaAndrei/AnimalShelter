@@ -6,17 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimalShelter.BL.Classes
+namespace AnimalShelter.DAL.Entities
 {
     public class MedicalCare
     {
         [Key]
         public int InterventionID { get; set; }
 
-        [ForeignKey("EmployeeID")]
+        [ForeignKey("Employee")]
         public int EmployeeID { get; set; }
 
-        [ForeignKey("AnimalID")]
+        [ForeignKey("Animal")]
         public int AnimalID { get; set; }
 
         public DateTime Date { get; set; }

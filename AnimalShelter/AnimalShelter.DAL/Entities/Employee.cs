@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimalShelter.BL.Classes
+namespace AnimalShelter.DAL.Entities
 {
     public class Employee
     {
@@ -17,7 +17,7 @@ namespace AnimalShelter.BL.Classes
         public int Age { get; set; }
         public string Address { get; set; }
 
-        [ForeignKey("TypeID")]
+        [ForeignKey("Type")]
         public int TypeID { get; set; }
 
         public virtual Type Type { get; set; }

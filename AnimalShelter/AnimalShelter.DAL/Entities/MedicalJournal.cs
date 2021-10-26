@@ -6,18 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimalShelter.BL.Classes
+namespace AnimalShelter.DAL.Entities
 {
-    class Cage
+    public class MedicalJournal
     {
         [Key]
-        public int CageID { get; set; }
+        public int JournalID { get; set; }
         public int AnimalID { get; set; }
-        public string Label { get; set; }
-        public double Dimension { get; set; }
+        public DateTime Date { get; set; }
+        public string Illness { get; set; }
+        public List<String> Symptoms { get; set; }
+        public List<String> Treatment { get; set; }
+        public string OptionalDetails { get; set; }
 
         [ForeignKey("AnimalID")]
         public virtual Animal Animal { get; set; }
-        
+
     }
 }
