@@ -28,5 +28,6 @@ namespace AnimalShelter.DAL.Migrations
         {
             base.OnModelCreating(modelBuilder);
         }
-        }
+    }
+        
 }
