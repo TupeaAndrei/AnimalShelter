@@ -1,6 +1,8 @@
+using AnimalShelter.DAL.Migrations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +25,14 @@ namespace AnimalShelter
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            var connectionString =
+                "Server=(localdb)\\MSSQLLocalDB;Database=AnimalShelterD;Trusted_Connection=True;MultipleActiveResultSets=true";
+
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
+            services.AddDbContext<ApplicationDbContext>();
+
             services.AddControllersWithViews();
         }
 

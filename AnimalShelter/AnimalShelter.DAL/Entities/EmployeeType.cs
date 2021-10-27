@@ -19,6 +19,7 @@ namespace AnimalShelter.DAL.Entities
         [Range(0.0,9999.99,ErrorMessage ="Enter a valid value foor the salary!")]
         public double Salary { get; set; }
         [Required]
+        [NotMapped]
         public List<string> Responsibilities { get; set; }
 
         [ForeignKey("Animal")]

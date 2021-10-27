@@ -21,7 +21,9 @@ namespace AnimalShelter.DAL.Entities
         /// Illness is optional, so if this is optional symptoms and treatment are optional as well, so this values are nullable.
         /// </summary>
         public string Illness { get; set; }
+        [NotMapped]
         public List<String> Symptoms { get; set; }
+        [NotMapped]
         public List<String> Treatment { get; set; }
         public string OptionalDetails { get; set; }
 

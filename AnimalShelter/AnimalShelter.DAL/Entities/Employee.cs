@@ -26,10 +26,10 @@ namespace AnimalShelter.DAL.Entities
 
         public string Address { get; set; }
 
-        [ForeignKey("Type")]
+        [ForeignKey("EmployeeType")]
         [Required]
         public int TypeID { get; set; }
 
-        public virtual Type Type { get; set; }
+        public virtual EmployeeType Type { get; set; }
     }
 }
