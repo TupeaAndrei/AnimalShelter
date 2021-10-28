@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace AnimalShelter.DAL.Entities
 {
-    public class Visiter
+    public class Visitor
     {
         [Key]
-        public int VisiterID { get; set; }
+        public int VisitorID { get; set; }
         [Required(ErrorMessage ="This field is required!")]
         [MinLength(3,ErrorMessage ="Name has to be at least 3 characters!")]
         public string Name { get; set; }

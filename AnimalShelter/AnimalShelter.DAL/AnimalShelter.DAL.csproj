@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Classes\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
 
@@ -23,6 +22,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AnimalShelter.TL\AnimalShelter.TL.csproj" />
   </ItemGroup>
 
 </Project>

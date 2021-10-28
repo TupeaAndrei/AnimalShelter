@@ -21,7 +21,7 @@ namespace AnimalShelter.DAL.Migrations
         public DbSet<EmployeeType> EmployeeTypes { get; set; }
         public DbSet<MedicalCare> Interventions { get; set; }
         public DbSet<MedicalJournal> MedicalJournals { get; set; }
-        public DbSet<Visiter> Visitors { get; set; }
+        public DbSet<Visitor> Visitors { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

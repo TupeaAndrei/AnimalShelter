@@ -26,7 +26,7 @@ namespace AnimalShelter.DAL.Entities
         public DateTime Date { get; set; }
 
         public virtual Animal Animal { get; set; }
-        public virtual Visiter Visiter { get; set; }
+        public virtual Visitor Visitor { get; set; }
 
     }
 }

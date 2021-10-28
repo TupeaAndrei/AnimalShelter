@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AnimalShelter.TL.DTO
 {
-    public class VisiterDTO
+    public class VisitorDTO
     {
-        public int VisiterID { get; set; }
+        public int VisitorID { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
     }
