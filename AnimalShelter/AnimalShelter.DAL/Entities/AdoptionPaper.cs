@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimalShelter.DAL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AnimalShelter.DAL.Entities
 {
-    public class AdoptionPaper
+    public class AdoptionPaper : IEntity
     {
         /// <summary>
         /// This table needs a primary key in order to be created in entity framework, even though in diagram it doesn't have one.

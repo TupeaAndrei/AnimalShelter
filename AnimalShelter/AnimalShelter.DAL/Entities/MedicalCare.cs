@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimalShelter.DAL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AnimalShelter.DAL.Entities
 {
-    public class MedicalCare
+    public class MedicalCare : IEntity
     {
         [Key]
         public int InterventionID { get; set; }
