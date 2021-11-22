@@ -1,6 +1,237 @@
-﻿
+﻿<!DOCTYPE html>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/welcome.css" />
+    <link rel="shortcut icon" href="images/homepageIcon.png">
+    <title>Rescue Paws - HOME</title>
+</head>
+
+<body class="bg-light">
+    <header>
+
+        <nav class="navbar bg-transparent navbar-expand-lg navbar-light bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="~/images/logo.png" width="36" height="30" class="d-inline-block align-text-top"> Rescue Paws
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                About us
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">How it started</a></li>
+                                <li><a class="dropdown-item" href="#">Our partners</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Donate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Adopt</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top: 100px;">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100 img-fluid" src="images/carousel1.png">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 id="ex" style="color: black; font-weight: bold;"> THE STREET DOGS OF ROMANIA</h2>
+                    <h3 id="ex" style="color: black; font-weight: bold;"> FEATURING ROSIE MARCEL</h3>
+                    <button id="car" type="button" style="font-weight: bold;" class="btn-dark btn-lg">Watch the documentary</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="img-fluid w-100 d-block" src="images/carousel2.png">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 id="ex" style="color: black; font-weight: bold;"> WE RESCUE CATS AND DOGS AND FIND FAMILIES FOR THEM.</h2>
+                    <h3 id="ex" style="color: black; font-weight: bold;"> PLEASE DONATE TO HELP US FEED THEM.</h3>
+                    <button id="car" type="button" style="font-weight: bold;" class="btn-dark btn-lg">Donate</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="img-fluid w-100 d-block" src="images/carousel3.png">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 id="ex" style="color: black; font-weight: bolder;"> Become a Lifesaver</h2>
+                    <h3 id="ex" style="color: black; font-weight: bolder;"> Rescue your next pet.</h3>
+                    <button id="car" type="button" style="font-weight: bold;" class="btn-lg btn-dark">Adopt Now</button>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <br>
+    <br>
+    <br>
+
+
+
+    <div class="container-fluid" style="margin-bottom:25px;">
+        <hr>
+        <div>
+            <h3 id="help">How you can help?</h3>
+        </div>
+        <br>
+        <h4 class="light-hdg" style="text-align: center;"><ins>Rescue Paws helps hundreds of homeless cats and dogs</ins></h4><br>
+        <p><strong>Romania has a homeless cats and dogs crisis. The streets are full of stray and abandoned animals, with many of them abused by humans or other animals. We work tirelessly on spaying/neutering as many animals as we can given our resources. We are always looking for responsible and loving homes for our rescues, and we work on educating the citizens and motivating them to give up on abandonment. Our association is small so our footprint in the rescue ecosystem is not as large as we would like, but together we can achieve so much more. You, too, can be part of the solution. Starting with adoption and volunteer work and ending with donations, there are countless ways for you to help eradicate the problem of homeless animals and to help curb the abandonment. This is the only Romania can become a truly civilized country. Fellow Romanians, let’s follow in the footsteps of good countries that applied humane solutions to the homeless animals problem.</strong></p>
+        <br>
+    </div>
+    <div class="container-fluid w-100" style="margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-md-2 offset-md-1">
+                <div class="bg-light card border-0 py-2">
+                    <img class="card-img-top zoom img-fluid" src="images/adopt.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Adopt</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 offset-md-2">
+                <div class="card bg-light border-0 py-2">
+                    <img class="card-img-top zoom img-fluid" src="images/donate.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Donate</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 offset-md-2">
+                <div class="card bg-light border-0 py-2">
+                    <img class="card-img-top zoom img-fluid" src="images/contact.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Contact us</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+    </div>
+
+
+    <h3 style="margin-left: 10px; margin-bottom: 35px; margin-top: 35px;" id="help">Our oldest pets</h3>
+
+    <div class="card-group container-fluid" style="margin-bottom: 100px;">
+        <div class="card">
+            <img class="card-img-top" src="">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row" style="margin-bottom: 75px;">
+            <div class="col-sm-6">
+
+                <img class="d-block img-fluid" src="/images/shelter.png">
+            </div>
+            <div class="col-sm-6">
+
+                <div class="ccm-custom-style-container ccm-custom-style-herocolumns17-9569 text">
+                    <h2 id="help" style="margin-bottom: 25px;">Who We Are</h2>
+
+                    <p><strong>We are Rescue Paws. An animal shelter, founded in 2018 by some animal lovers. Our mission is to save all healthy and treatable animals in Brasov. Last year we saved over 1,000 lost, homeless, and often mistreated animals.</strong></p>
+
+                    <button type="button" class="btn-lg btn-dark">About us</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="transbox">
+        <footer class="container-fluid p-0 w-100 bg-dark">
+            <nav class="navbar w-100 navbar-light navbar-expand-md">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item active mx-1">
+                        <a class="nav-link text-light" href="#">Page Top</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link text-light" href="">About us</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link text-light" href="">Donate</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link text-light" href="">Adopt</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link text-light" href="">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <small class="d-block text-center text-light">&copy; Copyright 2021, Rescue Paws Company</small>
+        </footer>
+    </div>
+
+
+</body>
+
+</html>
