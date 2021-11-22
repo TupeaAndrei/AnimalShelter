@@ -1,7 +1,10 @@
+using AnimalShelter.Authentification;
 using AnimalShelter.DAL.Migrations;
+using AnimalShelter.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +36,33 @@ namespace AnimalShelter
 
             services.AddDbContext<ApplicationDbContext>();
 
+            var authConnectionString =
+               "Server=(localdb)\\MSSQLLocalDB;Database=AuthentificationDB;Trusted_Connection=True;MultipleActiveResultSets=true";
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(authConnectionString));
+            services.AddDbContext<AppDbContext>();
+
+            services.AddIdentity<IdentityUser, IdentityRole>(
+                options =>
+                {
+                    options.SignIn.RequireConfirmedAccount = false;
+                }
+        ).AddEntityFrameworkStores<AppDbContext>();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                // Cookie settings
+                options.Cookie.HttpOnly = true;
+                //options.Cookie.Expiration 
+
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                options.LoginPath = "/Identity/Account/Login";
+                options.LogoutPath = "/Identity/Account/Logout";
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+                options.SlidingExpiration = true;
+                //options.ReturnUrlParameter=""
+            });
+
+
             services.AddControllersWithViews();
         }
 
@@ -55,6 +85,7 @@ namespace AnimalShelter
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
