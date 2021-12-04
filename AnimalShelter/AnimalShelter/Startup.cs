@@ -1,5 +1,10 @@
 using AnimalShelter.Authentification;
+using AnimalShelter.BL.Classes;
+using AnimalShelter.BL.Interfaces;
+using AnimalShelter.DAL.Entities;
+using AnimalShelter.DAL.Interfaces;
 using AnimalShelter.DAL.Migrations;
+using AnimalShelter.DAL.Repositories;
 using AnimalShelter.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,7 +39,7 @@ namespace AnimalShelter
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-            services.AddDbContext<ApplicationDbContext>();
+            services.AddDbContext<ApplicationDbContext>(ServiceLifetime.Transient);
 
             var authConnectionString =
                "Server=(localdb)\\MSSQLLocalDB;Database=AuthentificationDB;Trusted_Connection=True;MultipleActiveResultSets=true";
@@ -64,6 +69,16 @@ namespace AnimalShelter
 
 
             services.AddControllersWithViews();
+
+            services.AddScoped(typeof(IAnimalShelterRepository<>), typeof(AnimalShelterRepository<>));
+
+
+
+
+            services.AddTransient<IDonationLogic, DonationLogic>();
+            services.AddTransient<IAdoptionLogic, AdoptionLogic>();
+            services.AddTransient<IVisitorLogic, VisitorLogic>();
+            services.AddTransient<IAnimalLogic, AnimalLogic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
