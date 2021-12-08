@@ -27,4 +27,8 @@
     <ProjectReference Include="..\AnimalShelter.DAL\AnimalShelter.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\adoption\" />
+  </ItemGroup>
+
 </Project>

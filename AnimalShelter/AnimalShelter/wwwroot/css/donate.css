@@ -1,0 +1,40 @@
+﻿body {
+    margin: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.amountPost {
+    width: 70px;
+}
+
+h3 {
+    background-color: rgb(216, 216, 216);
+    border-radius: 10px;
+    text-align: center;
+}
+
+h4 {
+    background-color: rgb(221, 221, 221);
+    border-radius: 10px;
+    text-align: center;
+}
+
+#amount {
+    width: 350px;
+    height: auto;
+}
+
+.sidebar {
+    border: 2px solid black;
+    border-radius: 23px;
+    background-color: rgba(73, 73, 73, 0.829);
+    width: 317px;
+    height: 110px;
+    color: white;
+    font-size: large;
+}
+
+#info1 {
+    margin-right: 10px;
+    margin-bottom: 15px;
+}

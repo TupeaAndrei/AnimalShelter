@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewData["Title"] = "Donate";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/donate.css" />
+</head>
+
+<body class="bg-light">
+    <h2 style="margin-top: 80px; text-shadow: 1px 1px 2px black; font-weight: bolder; background-color: rgb(216, 216, 216); border-radius: 10px;text-align: center;">Donation Page</h2>
+    <hr>
+    <br>
+    <div>
+        <h3 id="amount">Type the amount below:</h3><br>
+        <input type="number" class="amountPost" name="sum" value="10" /> €
+    </div>
+    <br>
+    <div>
+        <input type="checkbox" name="check" id="check1" />
+        <label for="check" style="font-weight: bold; font-size: larger;">Make my donation</label>
+    </div>
+    <br><br>
+
+    <div class="container-fluid">
+        <h3 style="text-align: center; font-weight: bolder;">Personal Info</h3>
+        <hr>
+        <br>
+        <div>
+            <label id="info1" for="first_name">First Name</label><input type="text" id="first_name" name="first_name" value="" placeholder="Your First Name" /><br>
+            <label id="info1" for="last_name">Last Name</label><input type="text" id="last_name" name="last_name" value="" placeholder="Your Last Name" /><br>
+            <label id="info1" for="email">Email </label><input type="text" id="email" name="email" value="" placeholder="Your Email" /><br>
+            <br>
+            <label for="comments">I&#x27;d like my donation to be used for <span style="font-style: italic;">(optional)</span></label><br>
+            <textarea id="comments" name="comments"></textarea>
+            <br><br>
+            <input style="margin-right: 10px;" type="checkbox" value="" name="iAcceptPrivacyPolicy" id="iAcceptPrivacyPolicy" /><label>I accept the terms and conditions.</label>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <p style="font-size: larger; font-weight: bold;font-style: italic;">Donation total:</p><span id="totalDonation"> € 10</span>
+    </div>
+
+    <div class="howWeUseDonations" style="margin-top: 80px;">
+        <h3 style="text-align: center; font-weight: bolder;">How we put your donation to work</h3>
+        <hr>
+        <br>
+        <div class="block">
+            <h4 id="amount">Who we help</h4><br>
+            <ul>
+                <li>Animals hosted in our shelter</li>
+                <li>Animals hosted in paid fosters</li>
+                <li>Animals still roaming the streets that we can’t take in at the moment, but we want to make sure they don’t go hungry until we make room for them in the shelter</li>
+            </ul>
+        </div>
+        <br>
+        <div class="block">
+            <h4 id="amount">How we help</h4><br>
+            <ul>
+                <li>We offer food and life saving vaccination.</li>
+                <li>We offer spay/neuter surgeries.</li>
+                <li>We take care of special cases that need costly veterinary treatment and/or hospitalization.</li>
+                <li>We take care of the transport to the vet clinic.</li>
+                <li>We take care of your animals while you are on vacation.</li>
+            </ul>
+        </div>
+        <br>
+        <div class="block">
+            <h4 id="amount">How you can help</h4><br>
+            <ul>
+                <li>Donate</li>
+                <li>Adopt</li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <p style="font-style: italic; font-weight: bold;">! Donations made on Rescue Paws website are done through PayPal and are completely secure.</p>
+    <br>
+    <h3>Bank account</h3><br>
+    <div class="sidebar">
+        <p style="margin-top: 10px; margin-bottom: 15px;"><strong>Rescue Paws</strong><br /><strong>RON:</strong> RO64INGB0005599906112602<br /><strong>Euro:</strong> RO45INGB0078999906534312<br /></p>
+    </div>
+    
+</body>
+
+</html>
