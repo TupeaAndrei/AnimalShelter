@@ -1,80 +1,71 @@
 ﻿using AnimalShelter.DAL.Interfaces;
 using AnimalShelter.DAL.Migrations;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace AnimalShelter.DAL.Repositories
 {
-    public abstract class AnimalShelterRepository<TEntity,TContext> : IAnimalShelterRepository<TEntity>
-        where TEntity : class,IEntity
-        where TContext : ApplicationDbContext
+    public class AnimalShelterRepository<T> : IAnimalShelterRepository<T> where T : class,IEntity
     {
-        private readonly TContext _context;
+        private readonly ApplicationDbContext _context;
         
-        public AnimalShelterRepository(TContext context)
+        public AnimalShelterRepository(ApplicationDbContext context)
         {
-            this._context = context;
+            _context = context;
         }
-
-        public async Task<TEntity> Add(TEntity entity)
+        public async Task<T> Add(T entity)
         {
-            try
+            if (entity != null)
             {
-                _context.Set<TEntity>().Add(entity);
+                _context.Set<T>().Add(entity);
                 await _context.SaveChangesAsync();
                 return entity;
             }
-            catch (DbUpdateException)
-            {
-                throw;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            throw new DbUpdateException();
         }
 
-        public async Task<TEntity> Delete(int id)
+        public async Task<T> Delete(int id)
         {
-            var entity = await _context.Set<TEntity>().FindAsync(id);
+            var entity = await _context.Set<T>().FindAsync(id);
             if (entity == null)
             {
                 return null;
             }
             try
             {
-                _context.Set<TEntity>().Remove(entity);
+                _context.Set<T>().Remove(entity);
                 await _context.SaveChangesAsync();
-
                 return entity;
             }
-            catch (DbUpdateException)
+            catch(DbUpdateException)
             {
                 throw;
             }
-            catch (Exception)
+            catch(Exception)
             {
                 throw;
             }
         }
 
-        public async Task<TEntity> FindById(int id)
+        public async Task<T> FindById(int id)
         {
-            if (id <= 0)
+            if (id <=0)
             {
-                throw new ArgumentNullException(nameof(id));
+                throw new ArgumentException(nameof(id));
             }
-            return await _context.Set<TEntity>().FindAsync(id);
+            return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task<List<TEntity>> GetAll()
+        public async Task<List<T>> GetAll()
         {
-            return await _context.Set<TEntity>().ToListAsync();
+            return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task<TEntity> Update(TEntity entity)
+        public async Task<T> Update(T entity)
         {
             if (entity == null)
             {
@@ -86,11 +77,7 @@ namespace AnimalShelter.DAL.Repositories
                 await _context.SaveChangesAsync();
                 return entity;
             }
-            catch (DbUpdateException)
-            {
-                throw;
-            }
-            catch (Exception)
+            catch(DbUpdateException)
             {
                 throw;
             }
