@@ -1,0 +1,81 @@
+﻿#help {
+    font-weight: bold;
+    width: 250px;
+    padding: 8px;
+    border: 5px solid #ffffff;
+    margin: 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#help2 {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 70px;
+    margin-left: 10px;
+}
+
+#email {
+    display: flex;
+}
+
+.form {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+#yourName {
+    border-radius: 10px;
+    border: 1px solid #000000;
+    padding: 5px;
+}
+
+#yourEmail {
+    border-radius: 10px;
+    border: 1px solid #000000;
+    padding: 5px;
+}
+
+#yourPhone {
+    border-radius: 10px;
+    border: 1px solid #000000;
+    padding: 5px;
+}
+
+#yourMessage {
+    border-radius: 10px;
+    border: 1px solid #000000;
+    padding: 5px;
+}
+
+div.form {
+    background-color: #f5f5f5;
+    opacity: 0.8;
+    width: 600px;
+    font-size: 18px;
+}
+
+    div.form p {
+        font-weight: bold;
+        color: #000000;
+        margin: 5%;
+    }
+
+body {
+    background-image: url('/images/carousel4.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#contact {
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: rgba(73, 73, 73, 0.829);
+    width: 700px;
+    height: 400px;
+    margin-left: -10px;
+}
