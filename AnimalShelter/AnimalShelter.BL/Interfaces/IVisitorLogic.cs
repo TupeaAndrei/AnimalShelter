@@ -10,6 +10,6 @@ namespace AnimalShelter.BL.Interfaces
     public interface IVisitorLogic
     {
         Task AddVisitor(VisitorDTO visitorDTO);
-        Task RemoveVisitor(VisitorDTO visitorDTO)
+        Task RemoveVisitor(VisitorDTO visitorDTO);
     }
 }
