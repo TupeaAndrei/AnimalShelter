@@ -62,6 +62,16 @@ namespace AnimalShelter
                 //options.ReturnUrlParameter=""
             });
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+            
+            }
+            
+            );
+             
+
+
 
             services.AddControllersWithViews();
         }

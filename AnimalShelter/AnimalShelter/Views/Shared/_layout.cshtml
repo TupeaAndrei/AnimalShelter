@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="#"  onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");">Home</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -31,23 +31,26 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">How it started</a></li>
-                                <li><a class="dropdown-item" href="#">Our partners</a></li>
+                                <li><a class="dropdown-item" href="#"  onclick="@("window.location.href='" + @Url.Action("Partners", "Home") + "'");">Our partners</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Donate</a>
+                            <a class="nav-link" href="#"  onclick="@("window.location.href='" + @Url.Action("Donate", "Activities") + "'");">Donate</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Adopt</a>
+                            <a class="nav-link" href="#"  onclick="@("window.location.href='" + @Url.Action("Adopt", "Activities") + "'");">Adopt</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="#"  onclick="@("window.location.href='" + @Url.Action("Contact", "Home") + "'");">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><ins>Login</ins></a>
+                            <a class="nav-link" href="#"  onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");"><ins>Login</ins></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+                            <a class="nav-link" href="#"  onclick="@("window.location.href='" + @Url.Action("Register", "Account") + "'");">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <p class="nav-link">@ViewBag.Email</p>
                         </li>
 
                     </ul>
@@ -73,16 +76,16 @@
                         <a class="nav-link text-light" href="#">Page Top</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="nav-link text-light" href="">About us</a>
+                        <a class="nav-link text-light" href=""  onclick="@("window.location.href='" + @Url.Action("AboutUs", "Home") + "'");">About us</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="nav-link text-light" href="">Donate</a>
+                        <a class="nav-link text-light" href=""  onclick="@("window.location.href='" + @Url.Action("Donate", "Activities") + "'");">Donate</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="nav-link text-light" href="">Adopt</a>
+                        <a class="nav-link text-light" href=""  onclick="@("window.location.href='" + @Url.Action("Adopt", "Activities") + "'");">Adopt</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="nav-link text-light" href="">Contact</a>
+                        <a class="nav-link text-light" href=""  onclick="@("window.location.href='" + @Url.Action("Contact", "Home") + "'");">Contact</a>
                     </li>
                 </ul>
             </nav>
@@ -90,7 +93,6 @@
             <small class="d-block text-center text-light">&copy; Copyright 2021, Rescue Paws Company</small>
         </footer>
     </div>
-
    
 </body>
 </html>

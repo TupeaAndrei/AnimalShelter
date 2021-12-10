@@ -41,7 +41,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h2 id="ex" style="color: black; font-weight: bold;"> WE RESCUE CATS AND DOGS AND FIND FAMILIES FOR THEM.</h2>
                     <h3 id="ex" style="color: black; font-weight: bold;"> PLEASE DONATE TO HELP US FEED THEM.</h3>
-                    <button id="car" type="button" style="font-weight: bold;" class="btn-dark btn-lg">Donate</button>
+                    <button id="car" type="button" style="font-weight: bold;" class="btn-dark btn-lg"  onclick="@("window.location.href='" + @Url.Action("Donate", "Activities") + "'");">Donate</button>
                 </div>
             </div>
             <div class="carousel-item">
@@ -49,7 +49,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h2 id="ex" style="color: black; font-weight: bolder;"> BECOME A LIFESAVER</h2>
                     <h3 id="ex" style="color: black; font-weight: bolder;"> RESCUE YOUR NEXT PET.</h3>
-                    <button id="car" type="button" style="font-weight: bold;" class="btn-lg btn-dark">Adopt Now</button>
+                    <button id="car" type="button" style="font-weight: bold;" class="btn-lg btn-dark"  onclick="@("window.location.href='" + @Url.Action("Adopt", "Activities") + "'");">Adopt Now</button>
                 </div>
             </div>
             <div class="carousel-item">
@@ -57,7 +57,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h2 id="ex" style="color: black; font-weight: bolder;"> OUR PERFECT COMPANIONS NEVER HAVE FEWER THAN 4 FEET.</h2>
                     <h3 id="ex" style="color: black; font-weight: bolder;"> I CAN'T DO EVERYTHING BUT I CAN DO SOMETHING.</h3>
-                    <button id="car" type="button" style="font-weight: bold;" class="btn-lg btn-dark">Create account</button>
+                    <button id="car" type="button" style="font-weight: bold;" class="btn-lg btn-dark" onclick="@("window.location.href='" + @Url.Action("Register", "Account") + "'");">Create account</button>
                 </div>
             </div>
         </div>
@@ -90,7 +90,7 @@
         <div class="row">
             <div class="col-md-2 offset-md-1">
                 <div class="bg-light card border-0 py-2">
-                    <img class="card-img-top zoom img-fluid" src="images/adopt.png" alt="Card image cap">
+                    <img class="card-img-top zoom img-fluid" src="images/adopt.png" alt="Card image cap"  onclick="@("window.location.href='" + @Url.Action("Adopt", "Activities") + "'");">
                     <div class="card-body">
                         <h2 class="card-title text-center">Adopt</h2>
                     </div>
@@ -98,7 +98,7 @@
             </div>
             <div class="col-md-2 offset-md-2">
                 <div class="card bg-light border-0 py-2">
-                    <img class="card-img-top zoom img-fluid" src="images/donate.png" alt="Card image cap">
+                    <img class="card-img-top zoom img-fluid" src="images/donate.png" alt="Card image cap"  onclick="@("window.location.href='" + @Url.Action("Donate", "Activities") + "'");">
                     <div class="card-body">
                         <h2 class="card-title text-center">Donate</h2>
                     </div>
@@ -106,7 +106,7 @@
             </div>
             <div class="col-md-2 offset-md-2">
                 <div class="card bg-light border-0 py-2">
-                    <img class="card-img-top zoom img-fluid" src="images/contact.png" alt="Card image cap">
+                    <img class="card-img-top zoom img-fluid" src="images/contact.png" alt="Card image cap"  onclick="@("window.location.href='" + @Url.Action("Contact", "Home") + "'");">
                     <div class="card-body">
                         <h2 class="card-title text-center">Contact us</h2>
                     </div>
@@ -166,7 +166,7 @@
 
                     <p><strong>We are Rescue Paws. An animal shelter, founded in 2018 by some animal lovers. Our mission is to save all healthy and treatable animals in Brasov. Last year we saved over 1,000 lost, homeless, and often mistreated animals.</strong></p>
 
-                    <button type="button" class="btn-lg btn-dark">About us</button>
+                    <button type="button" class="btn-lg btn-dark" onclick="@("window.location.href='" + @Url.Action("AboutUs", "Home") + "'");">About us</button>
 
                 </div>
             </div>

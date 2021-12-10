@@ -18,8 +18,10 @@ namespace AnimalShelter.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string Email = "")
         {
+            var currentUser = this.User.Identity.Name;
+            ViewBag.Email = currentUser;
             return View();
         }
 
@@ -27,6 +29,21 @@ namespace AnimalShelter.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
+        public IActionResult Partners()
+        {
+            return View();
         }
     }
 }

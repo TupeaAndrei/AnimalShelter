@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_layout.cshtml";
 
 }
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,18 +25,14 @@
 
             <h1 style="margin-top: 20px; text-shadow: 2px 2px 5px black;">Use a local account to log in.</h1>
             <hr />
-            <form method="post" id="logform" asp-action="Login">
+            <form id="logform" asp-action="ConfirmLogin">
                 <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="@Model.Email"></label>
-                    <input asp-for="@Model.Email" class="form-control" placeholder="Email" />
-                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Password"></label>
-                    <input asp-for="@Model.Password" class="form-control" placeholder="Password" />
-                    <span asp-validation-for="@Model.Password" class="text-danger"></span>
-                </div>
+                <label>Email:</label>
+                <input id="emailTxt" class="form-control" asp-for="Email" placeholder="Enter email..." />
+                @Html.ValidationMessageFor(model => model.Email)
+
+                <label>Password:</label>
+                <input id="passwordTxt" class="form-control" asp-for="Password" placeholder="Enter password...." />
                 <div class="wthree-text">
                     <label class="anim">
                         <input type="checkbox" class="checkbox" required="">
@@ -49,11 +47,10 @@
         </div>
     </div>
 
+   
+
 </body>
 
+
+
 </html>
-
-
-@section Scripts{
-    <partial name="_ValidationScriptPartial" />
-}
