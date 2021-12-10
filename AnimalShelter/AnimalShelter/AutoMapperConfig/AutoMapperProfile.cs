@@ -15,6 +15,7 @@ namespace AnimalShelter.AutoMapperConfig
             CreateMap<AdoptionPaper, AdoptionPaperDTO>().ReverseMap();
             CreateMap<Animal, AnimalDTO>().ReverseMap();
             CreateMap<Cage, CageDTO>().ReverseMap();
+            CreateMap<Donation, DonationDTO>().ReverseMap();
             CreateMap<Employee, EmployeeDTO>().ReverseMap();
             CreateMap<EmployeeType, EmployeeTypeDTO>().ReverseMap();
             CreateMap<MedicalCare, MedicalCareDTO>().ReverseMap();
