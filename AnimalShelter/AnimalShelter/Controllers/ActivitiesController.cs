@@ -1,6 +1,7 @@
 ﻿using AnimalShelter.BL.Interfaces;
 using AnimalShelter.TL.DTO;
 using AnimalShelter.ViewModels;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -10,11 +11,13 @@ namespace AnimalShelter.Controllers
     {
         private readonly IDonationLogic _donationLogic;
         private readonly IVisitorLogic _visitorLogic;
+        private readonly INotyfService _notyf;
 
-        public ActivitiesController(IDonationLogic donationLogic, IVisitorLogic visitorLogic)
+        public ActivitiesController(IDonationLogic donationLogic, IVisitorLogic visitorLogic,INotyfService notyf)
         {
             _donationLogic = donationLogic;
             _visitorLogic = visitorLogic;
+            _notyf = notyf;
         }
 
         public IActionResult Index()
@@ -54,7 +57,7 @@ namespace AnimalShelter.Controllers
                 var donationDTO = new DonationDTO { Date = System.DateTime.Now, Sum = model.DonationSum, PaymentMethod = model.SelectedPaymentMethod,VisitorID = id };
                 await _donationLogic.AddDonation(donationDTO);
             }
-
+            _notyf.Success("Thank you for you donation! You Are Awesome!");
             return RedirectToAction("Index", "Home");
         }
     }
