@@ -6,6 +6,8 @@ using AnimalShelter.DAL.Interfaces;
 using AnimalShelter.DAL.Migrations;
 using AnimalShelter.DAL.Repositories;
 using AnimalShelter.Data;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -70,6 +72,8 @@ namespace AnimalShelter
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireNonAlphanumeric = false;
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequireUppercase = true;
             
             }
             
@@ -81,6 +85,8 @@ namespace AnimalShelter
             services.AddControllersWithViews();
 
             services.AddScoped(typeof(IAnimalShelterRepository<>), typeof(AnimalShelterRepository<>));
+
+            services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
 
 
 
@@ -112,6 +118,8 @@ namespace AnimalShelter
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseNotyf();
 
             app.UseEndpoints(endpoints =>
             {

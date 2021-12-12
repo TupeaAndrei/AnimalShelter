@@ -15,8 +15,10 @@ namespace AnimalShelter.DAL.Entities
         [Required(ErrorMessage ="This field is required!")]
         [MinLength(3,ErrorMessage ="Name has to be at least 3 characters!")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "This field is required!")]
         [RegularExpression("^(?!0+$)(\\+\\d{1,3}[- ]?)?(?!0+$)\\d{10,15}$", ErrorMessage = "Please enter valid phone no.")]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
     }
 }

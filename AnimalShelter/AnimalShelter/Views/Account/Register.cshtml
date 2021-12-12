@@ -23,17 +23,17 @@
         <div class="col-md-4 col-md-offset-4" id="register">
             <h1 style="margin-top: 20px; text-shadow: 2px 2px 5px black;">Create an account</h1>
             <hr />
-            <form id="regform" asp-action= "ConfirmRegister" class="form-group">
+            <form id="regform" asp-action="ConfirmRegister" class="form-group">
                 <div asp-validation-summary="All" class="text-danger">
                 </div>
-                   <label>Email:</label>
-                   <input id = "emailTxt" class="form-control" asp-for = "Email" placeholder="Enter email..."/>
+                <label>Email:</label>
+                <input id="emailTxt" class="form-control" asp-for="Email" placeholder="Enter email..." />
 
-                   <label>Password:</label>
-                   <input class="form-control" asp-for="@Model.Password" placeholder = "Enter password..."/>
+                <label>Password:</label>
+                <input class="form-control" asp-for="@Model.Password" placeholder="Enter password..." />
 
-                    <label>Confirm password:</label>
-                    <input class="form-control" asp-for="@Model.ConfirmPassword" placeholder="Confirm password..."/>
+                <label>Confirm password:</label>
+                <input class="form-control" asp-for="@Model.ConfirmPassword" placeholder="Confirm password..." />
 
                 <div class="wthree-text">
                     <label class="anim">
@@ -46,10 +46,10 @@
                     <button type="submit" class="btn btn-lg btn-dark active" form="regform" aria-pressed="true">Register</button>
                 </div>
             </form>
-            <strong >Already have an Account? <a href="#" onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");"> Login Now!</a></strong>
+            <strong>Already have an Account? <a href="#" onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");"> Login Now!</a></strong>
 
         </div>
     </div>
-</body>
 
+</body>
 </html>

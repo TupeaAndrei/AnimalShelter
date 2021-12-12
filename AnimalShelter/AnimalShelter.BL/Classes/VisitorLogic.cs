@@ -7,6 +7,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace AnimalShelter.BL.Classes
             _visitorRepository = visitorRepository;
         }
 
-        public async Task AddVisitor(VisitorDTO visitorDTO)
+        public async Task<VisitorDTO> AddVisitor(VisitorDTO visitorDTO)
         {
             if (visitorDTO == null)
             {
@@ -33,12 +34,32 @@ namespace AnimalShelter.BL.Classes
             try
             {
                 var entity = _mapper.Map<Visitor>(visitorDTO);
-                await _visitorRepository.Add(entity);
+                var result = await _visitorRepository.Add(entity);
+                var resultDTO = _mapper.Map<VisitorDTO>(result);
+                return resultDTO;
             }
             catch(DbUpdateException)
             {
                 throw;
             }
+        }
+
+        public async Task<VisitorDTO> GetVisitorByNameAndEmail(string name, string email)
+        {
+            List<Visitor> visitors = new();
+            Visitor visitor = new();
+            try
+            {
+                visitors = await _visitorRepository.GetAll();
+                visitor = visitors.FirstOrDefault(v => v.Name == name && v.Email == email);
+
+            }
+            catch (DataException)
+            {
+                throw;
+            }
+            var visitorDTO = _mapper.Map<VisitorDTO>(visitor);
+            return visitorDTO;
         }
 
         public async Task RemoveVisitor(VisitorDTO visitorDTO)

@@ -9,7 +9,8 @@ namespace AnimalShelter.BL.Interfaces
 {
     public interface IVisitorLogic
     {
-        Task AddVisitor(VisitorDTO visitorDTO);
+        Task<VisitorDTO> AddVisitor(VisitorDTO visitorDTO);
         Task RemoveVisitor(VisitorDTO visitorDTO);
+        Task<VisitorDTO> GetVisitorByNameAndEmail(string name, string email);
     }
 }

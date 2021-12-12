@@ -13,5 +13,6 @@ namespace AnimalShelter.DAL.Interfaces
         Task<T> Add(T entity);
         Task<T> Update(T entity);
         Task<T> Delete(int id);
+        
     }
 }
