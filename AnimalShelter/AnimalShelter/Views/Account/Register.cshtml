@@ -26,14 +26,20 @@
             <form id="regform" asp-action="ConfirmRegister" class="form-group">
                 <div asp-validation-summary="All" class="text-danger">
                 </div>
+                <label>Name:</label>
+                <input id="nameTxt" class="form-control" asp-for="UserName" placeholder="Enter Name..." required/>
+
+                <label>Phone:</label>
+                <input id="phoneTxt" class="form-control" asp-for="PhoneNumber" placeholder="Enter phone number..." required />
+
                 <label>Email:</label>
-                <input id="emailTxt" class="form-control" asp-for="Email" placeholder="Enter email..." />
+                <input id="emailTxt" class="form-control" asp-for="Email" placeholder="Enter email..." required/>
 
                 <label>Password:</label>
-                <input class="form-control" asp-for="@Model.Password" placeholder="Enter password..." />
+                <input class="form-control" asp-for="@Model.Password" placeholder="Enter password..." required/>
 
                 <label>Confirm password:</label>
-                <input class="form-control" asp-for="@Model.ConfirmPassword" placeholder="Confirm password..." />
+                <input class="form-control" asp-for="@Model.ConfirmPassword" placeholder="Confirm password..." required/>
 
                 <div class="wthree-text">
                     <label class="anim">

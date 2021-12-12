@@ -1,10 +1,13 @@
 ﻿using AnimalShelter.Authentification;
+using AnimalShelter.BL.Interfaces;
+using AnimalShelter.TL.DTO;
 using AnimalShelter.ViewModels;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,12 +18,14 @@ namespace AnimalShelter.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly INotyfService _notyf;
+        private readonly IVisitorLogic _visitorLogic;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager,INotyfService notyf)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager,INotyfService notyf,IVisitorLogic visitorLogic)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _notyf = notyf;
+            _visitorLogic = visitorLogic;
         }
 
         public IActionResult Register()
@@ -43,6 +48,16 @@ namespace AnimalShelter.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                    try
+                    {
+                        var dto = new VisitorDTO { Email = model.Email, Name = model.UserName ,PhoneNumber = model.PhoneNumber};
+                        await _visitorLogic.AddVisitor(dto);
+                    }
+                    catch(DataException)
+                    {
+                        _notyf.Error("DB ERROR");
+                        return RedirectToAction("Register", "Account");
+                    }
                     _notyf.Success("Register Succeded!");
 
                     return RedirectToAction("Index", "Home", new {Email = model.Email});
@@ -59,6 +74,7 @@ namespace AnimalShelter.Controllers
                 _notyf.Error(lastError);
                 ModelState.AddModelError(string.Empty, "Invalid login attempt!");
             }
+            _notyf.Error("Password dont match!");
             return RedirectToAction("Register", "Account");
         }
 
