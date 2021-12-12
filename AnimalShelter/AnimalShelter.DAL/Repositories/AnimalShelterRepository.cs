@@ -1,4 +1,5 @@
-﻿using AnimalShelter.DAL.Interfaces;
+﻿using AnimalShelter.DAL.Entities;
+using AnimalShelter.DAL.Interfaces;
 using AnimalShelter.DAL.Migrations;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -64,6 +65,8 @@ namespace AnimalShelter.DAL.Repositories
         {
             return await _context.Set<T>().ToListAsync();
         }
+
+     
 
         public async Task<T> Update(T entity)
         {
