@@ -1,5 +1,5 @@
 ﻿
-@{
+@*@{
     ViewData["Title"] = "Donate";
     Layout = "~/Views/Shared/_layout.cshtml";
 }
@@ -18,7 +18,7 @@
 </head>
 
 <body class="bg-light">
-    <h2 style="margin-top: 80px; text-shadow: 1px 1px 2px black; font-weight: bolder; background-color: rgb(216, 216, 216); border-radius: 10px;text-align: center;">Donation Page</h2>
+    <h2 style="margin-top: 30px; text-shadow: 1px 1px 2px black; font-weight: bolder; background-color: rgb(216, 216, 216); border-radius: 10px;text-align: center;">Donation Page</h2>
     <hr>
     <br>
     <div>
@@ -44,7 +44,22 @@
             <label for="comments">I&#x27;d like my donation to be used for <span style="font-style: italic;">(optional)</span></label><br>
             <textarea id="comments" name="comments"></textarea>
             <br><br>
-            <input style="margin-right: 10px;" type="checkbox" value="" name="iAcceptPrivacyPolicy" id="iAcceptPrivacyPolicy" /><label>I accept the terms and conditions.</label>
+
+            <div class="container-fluid">
+                <h3 style="text-align: center; font-weight: bolder;">Personal Info</h3>
+                <hr>
+                <br>
+                <div>
+                    <label id="info1">First Name</label><input type="text" id="first_name" class="form-control" asp-for="FirstName" placeholder="Your First Name" /><br>
+                    <label id="info2" for="last_name">Last Name</label><input type="text" id="last_name" class="form-control" asp-for="LastName" placeholder="Your Last Name" /><br>
+                    <label id="info3">Email </label><input type="text" class="form-control" id="email" asp-for="Email" placeholder="Your Email" /><br>
+                    <br>
+                    <label for="comments">I&#x27;d like my donation to be used for <span style="font-style: italic;">(optional)</span></label><br>
+                    <textarea id="comments" name="comments" asp-for="OptionalInfo"></textarea>
+                    <br><br>
+                    <input style="margin-right: 10px;" type="checkbox" asp-for="Terms" id="iAcceptPrivacyPolicy" /><label>I accept the terms and conditions.</label>
+                </div>
+            </div>
         </div>
     </div>
     <div style="text-align: center;">
@@ -60,7 +75,7 @@
             <ul>
                 <li>Animals hosted in our shelter</li>
                 <li>Animals hosted in paid fosters</li>
-                <li>Animals still roaming the streets that we can’t take in at the moment, but we want to make sure they don’t go hungry until we make room for them in the shelter</li>
+                <li>Animals still roaming the streets that we can't take in at the moment, but we want to make sure they don’t go hungry until we make room for them in the shelter</li>
             </ul>
         </div>
         <br>
@@ -90,7 +105,18 @@
     <div class="sidebar">
         <p style="margin-top: 10px; margin-bottom: 15px;"><strong>Rescue Paws</strong><br /><strong>RON:</strong> RO64INGB0005599906112602<br /><strong>Euro:</strong> RO45INGB0078999906534312<br /></p>
     </div>
-    
+
+    <script>
+        var quantity = document.getElementById('amountInput');
+        var spanOutput = document.getElementById('totalDonation');
+
+        function updateVal() {
+            spanOutput.innerHTML = quantity.value + " €";
+        }
+
+        quantity.addEventListener("input", updateVal);
+    </script>
+
 </body>
 
-</html>
+</html>*@

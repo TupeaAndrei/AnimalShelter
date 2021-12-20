@@ -3,3 +3,492 @@
     ViewData["Title"] = "Adopt";
     Layout = "~/Views/Shared/_layout.cshtml";
 }
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/adopt.css" />
+</head>
+
+<body class="bg-light">
+
+
+    <h1 style="margin-top: 30px; margin-bottom: 40px; text-shadow: 2px 2px 5px black; text-align: center;">Pets for adoption</h1>
+
+    <div class="card-group container-fluid" style="margin-bottom: 100px;">
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog1.png">
+            <div class="card-body">
+                <h5 class="card-title">Alfie</h5>
+                <p class="card-text">Good with other animals.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog2.png">
+            <div class="card-body">
+                <h5 class="card-title">Darla</h5>
+                <p class="card-text">Good with everyone.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog3.png">
+            <div class="card-body">
+                <h5 class="card-title">Bruno</h5>
+                <p class="card-text">Good with everyone.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-group container-fluid" style="margin-bottom: 100px;">
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog4.png">
+            <div class="card-body">
+                <h5 class="card-title">Brownie</h5>
+                <p class="card-text">Good with everyone.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog5.png">
+            <div class="card-body">
+                <h5 class="card-title">Sparky</h5>
+                <p class="card-text">Good with everyone.</p>
+                <p> The oldest dog.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog6.png">
+            <div class="card-body">
+                <h5 class="card-title">Bella</h5>
+                <p class="card-text">Good with everyone.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-group container-fluid" style="margin-bottom: 100px;">
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog7.png">
+            <div class="card-body">
+                <h5 class="card-title">Benji</h5>
+                <p class="card-text">Doesn't like cats.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog8.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Bailey</h5>
+                <p class="card-text">Good with other dogs.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog9.png">
+            <div class="card-body">
+                <h5 class="card-title">Lucky</h5>
+                <p class="card-text">Shy, a little scared by other dogs.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-group container-fluid" style="margin-bottom: 100px;">
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog10.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Max</h5>
+                <p class="card-text">Good with people, bad with other animals.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog11.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Kira</h5>
+                <p class="card-text">Good with everyone.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/dog12.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Koko</h5>
+                <p class="card-text">Good with everyone.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-group container-fluid" style="margin-bottom: 100px;">
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/cat1.png">
+            <div class="card-body">
+                <h5 class="card-title">Maya</h5>
+                <p class="card-text">Good with other animals.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/cat2.png">
+            <div class="card-body">
+                <h5 class="card-title">Milo</h5>
+                <p class="card-text">Good with everyone.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/cat3.png">
+            <div class="card-body">
+                <h5 class="card-title">Loki</h5>
+                <p class="card-text">Good with everyone, but shy.</p>
+                <p>The youngest pet in the shelter.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-group container-fluid" style="margin-bottom: 100px;">
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/cat4.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Misty</h5>
+                <p class="card-text">Bad with other animals.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/cat5.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Oreo</h5>
+                <p class="card-text">Good with everyone, but a little scared.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/cat6.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Blanca & Blanco</h5>
+                <p class="card-text">Scared of dogs.</p>
+                <p>Don't want to be apart.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-group container-fluid" style="margin-bottom: 100px;">
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/cat7.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Samy & Ivi</h5>
+                <p class="card-text">Don't want to be apart from each other.</p>
+                <p>Very scared, very much love needed.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/cat8.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Cara</h5>
+                <p class="card-text">Good with everyone.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" width="150" height="250" src="/images/adoption/cat9.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Nala</h5>
+                <p class="card-text">Good with everyone, very playful.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <h1 style="margin-top: 80px; margin-bottom: 40px; text-shadow: 2px 2px 5px black; text-align: center;">Top reasons to adopt a pet</h1>
+        <br>
+        <div class="container-fluid" id="reasons">
+            <h3>1. Because you'll save a life.</h3>
+            <br>
+            <p>Each year, it's estimated that more than one million adoptable dogs and cats are euthanized in the United States, simply because too many pets come into shelters and too few people consider adoption when looking for a pet.</p>
+
+            <p>
+                The number of euthanized animals could be reduced dramatically if more people adopted pets instead of buying them. When you adopt, you save a loving animal by making them part of your family and open up shelter space for another animal who
+                might desperately need it.
+            </p>
+
+        </div>
+        <br><br>
+        <div class="container-fluid" id="reasons">
+            <h3>2. Because you'll get a great animal.</h3>
+            <br>
+            <p>
+                Animal shelters and rescue groups are brimming with happy, healthy pets just waiting for someone to take them home. Most shelter pets wound up there because of a human problem like a move or a divorce, not because the animals did anything
+                wrong. Many are already house-trained and used to living with families.
+            </p>
+        </div>
+        <br><br>
+        <div class="container-fluid" id="reasons">
+            <h3>3. Because it'll cost you less.</h3>
+            <br>
+            <p>
+                Usually when you adopt a pet, the cost of spay/neuter, first vaccinations (and sometimes even microchipping!) is included in the adoption price, which can save you some of the up front costs of adding a new member to your family. Depending
+                on the animal, you may also save on housebreaking and training expenses.
+            </p>
+        </div>
+        <br><br>
+        <div class="container-fluid" id="reasons">
+            <h3>4. Because adoption helps more than just one animal.</h3>
+            <br>
+            <p>
+                Overburdened shelters take in millions of stray, abused and lost animals every year, and by adopting an animal, you’re making room for others. Not only are you giving more animals a second chance, but the cost of your adoption goes directly
+                towards helping those shelters better care for the animals they take in!
+            </p>
+        </div>
+        <br><br>
+        <div class="container-fluid" id="reasons">
+            <h3>5. Because you'll change a homeless animal's whole world.</h3>
+            <br>
+            <p>And get a new best friend out of the deal. Seriously, what could be better than that?</p>
+        </div>
+    </div>
+    <br><br><br>
+
+    <main>
+        <form id="survey-form">
+
+            <p id="description"><em>Thank you for wishing to offer a rescue dog a home! Please could you complete the form below and submit it to us. </em></p>
+           
+
+            <div id="todays-date">
+                <label class="main-label" for="todays-date">Today's Date: </label>
+                <select name="day">
+                    <option value="day">Day</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <select name="month">
+                    <option value="month">Month</option>
+                    <option value="january">January</option>
+                    <option value="february">February</option>
+                    <option value="march">March</option>
+                    <option value="april">April</option>
+                    <option value="may">May</option>
+                    <option value="june">June</option>
+                    <option value="july">July</option>
+                    <option value="august">August</option>
+                    <option value="september">September</option>
+                    <option value="october">October</option>
+                    <option value="november">November</option>
+                    <option value="december">December</option>
+                </select>
+                <select name="year">
+                    <option value="" e="year">Year</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+
+            <div id="dogName">
+                <label class="main-label" for="dogNameLabel">Name of the dog you wish to adopt: </label>
+                <input type="text" id="dogNameLabel" placeholder="Dog Name" required>
+            </div>
+
+
+
+            <div id="first-last-name">
+                <label class="main-label" id="name-label">First Name: </label>
+                <input type="text" id="name" placeholder="John" required>
+
+                <label class="main-label">Last Name: </label>
+                <input type="text" id="lastName" placeholder="Smith" required>
+            </div>
+
+            <div id="gender">
+                <input type="radio" id="male" name="gender" value="1" required>
+                <label class="main-label" for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="2" required>
+                <label class="main-label" for="female">Female</label>
+            </div>
+
+
+            <div id="address">
+                <label class="main-label" for="address1">Address: </label>
+                <input type="text" id="address1" size="30" placeholder="Enter your address here">
+
+
+                <label class="main-label" for="town">Town: </label>
+                <input type="text" id="town" size="15" placeholder="Your town">
+
+                <label class="main-label" for="postcode">Postcode: </label>
+                <input type="text" id="postcode" size="10" placeholder="Postcode">
+
+            </div>
+
+
+            <div id="email-phone">
+                <label class="main-label" id="phone-label" for="phone">Phone: </label>
+                <input type="tel" id="phone" placeholder="e.g. 0784522865">
+
+                <label class="main-label" id="email-label" for="email">Email: </label>
+                <input type="email" id="email" placeholder="e.g. youremail@example.com" required size="35">
+
+            </div>
+
+
+            <div id="age">
+                <ul><label class="main-label" for="age">Age of applicant:</label></ul>
+
+                <li>
+                    <input type="radio" id="u18" name="age" value="1" required>
+                    <label for="u18">Under 18</label>
+                </li>
+
+                <li>
+                    <input type="radio" id="18" name="age" value="2" required>
+                    <label for="18">18 - 24</label>
+                </li>
+
+                <li>
+                    <input type="radio" id="25" name="age" value="3" required>
+                    <label for="25">25 - 34</label>
+                </li>
+
+                <li>
+                    <input type="radio" id="35" name="age" value="4" required>
+                    <label for="35">35 - 44</label>
+                </li>
+
+                <li>
+                    <input type="radio" id="45" name="age" value="5" required>
+                    <label for="45">45 and older</label>
+                </li>
+
+            </div>
+
+
+            <div id="why">
+                <ul><label class="main-label" for="why">Why do you want to adopt a dog? Please check all that apply:</label></ul>
+                <li>
+                    <input type="checkbox" name="reason" id="companion" value="companion">
+                    <label for="companion">Pet & Companion</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" name="reason" id="gift" value="gift">
+                    <label for="gift">Gift</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" name="reason" id="hunting" value="hunting">
+                    <label for="hunting">Hunting Dog</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" name="reason" id="breeding" value="breeding">
+                    <label for="breeding">Breeding Dog</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" name="reason" id="guard" value="guard">
+                    <label for="guard">Guard Dog</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" name="reason" id="senior" value="senior">
+                    <label for="senior">For a Senior</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" name="reason" id="child" value="child">
+                    <label for="child">For a Child</label>
+                </li>
+
+            </div>
+
+
+            <div id="allergies">
+                <ul><label class="main-label" for="allergies">Is anyone in your household allergic to pets?</label></ul>
+
+                <li>
+                    <input type="radio" id="yes" name="allergy" value="1" required>
+                    <label for="yes">Yes</label>
+                </li>
+
+                <li>
+                    <input type="radio" id="no" name="allergy" value="2" required>
+                    <label for="no">No</label>
+                </li>
+
+                <li>
+                    <input type="radio" id="sometimes" name="allergy" value="3" required>
+                    <label for="sometimes">Sometimes</label>
+                </li>
+            </div>
+
+
+            <div id="pets-household">
+                <ul>
+                    <label class="main-label" id="number-label">
+                        How many pets are already in your household?
+                    </label>
+                </ul>
+                <li><input type="number" id="number" min="1" max="10" placeholder="0"></li>
+            </div>
+
+
+            <div id="housing">
+                <label class="main-label">What type of housing you reside?</label>
+                <select id="dropdown">
+                    <option disabled selected>Select an option</option>
+                    <option value="apt">Apartment / Condo</option>
+                    <option value="house">House</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+
+            <div id="prepare">
+                <label class="main-label">How did you prepare yourself?</label>
+            </div>
+            <div id="textarea">
+                <textarea id="comments" rows="10" cols="70" placeholder=" Write here how did you prepare yourself for adoption."></textarea>
+            </div>
+
+            <div id="button">
+                <button type="submit" id="submit">Submit</button>
+            </div>
+
+
+        </form>
+    </main>
+
+    <script src="~/js/adopt.js"></script>
+
+</body>
+
+</html>

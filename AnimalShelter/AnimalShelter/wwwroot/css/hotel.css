@@ -1,0 +1,180 @@
+﻿#img {
+    margin-top: 30px;
+    width: 1200px;
+    height: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+#title {
+    color: #000000;
+    height: 40vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span {
+    position: relative;
+    font-family: "Avenir Next", sans-serif;
+    font-weight: 900;
+    font-size: 64px;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    display: inline-block;
+}
+
+    span:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: attr(filter-content);
+        filter: url(#motion-blur-filter);
+    }
+
+svg {
+    display: none;
+}
+
+#text {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Underdog&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+
+html,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#survey-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    opacity: 0.9;
+    color: #120901;
+    font-size: 1.2em;
+    margin: 0px 50px;
+    border: 2px solid #120901;
+    border-radius: 5px;
+    background-color: #dbdbdb;
+    box-shadow: 5px 5px 5px #120901;
+}
+
+#description {
+    font-size: 1.1em;
+    text-align: center;
+}
+
+form,
+#todays-date > select,
+input,
+textarea,
+#dropdown {
+    padding: 5px;
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+.main-label {
+    display: flex;
+    justify-content: stretch;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 5px;
+}
+
+form > div {
+    padding: 5px;
+    margin: 1px 5% 15px 5%;
+}
+
+ul {
+    padding-left: 0px;
+}
+
+li {
+    padding: 2px 2px 2px 5px;
+    display: inline-block;
+    list-style: none;
+}
+
+input {
+    margin: 5px;
+}
+
+#email-phone > input,
+#dogName > input,
+#first-last-name > input,
+#address > input {
+    width: 90%;
+}
+
+#gender {
+    display: flex;
+    justify-content: stretch;
+}
+
+#housing {
+    display: flex;
+    flex-direction: column;
+}
+
+    #housing > select {
+        margin: 15px;
+        width: 90%;
+    }
+
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+#button {
+    display: flex;
+    justify-content: center;
+}
+
+#submit {
+    color: #120901;
+    background: #7c7977;
+    border: 2.5px solid #120901;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 2.02em;
+    font-weight: bold;
+    padding: 22px;
+}
+
+    #submit:hover {
+        background: #FFFFFF;
+        -webkit-transition-duration: 0.4s;
+        -moz-transition-duration: 0.4s;
+        -o-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+    }
+
+@media (min-width: 760px) and (min-device-width: 760px) {
+    #email-phone > input,
+    #dogName > input,
+    #first-last-name > input,
+    #address > input {
+        width: auto;
+    }
+
+    .main-label {
+        display: inline-block;
+    }
+
+    #housing > select {
+        width: 300px;
+    }
+}
