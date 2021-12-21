@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewData["Title"] = "Hotel";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/hotel.css" />
+</head>
+
+<body class="bg-light">
+    <div id="title">
+        <svg xmlns="http://www.w3.org/2000/svg">
+
+
+            <filter id="motion-blur-filter" filterUnits="userSpaceOnUse">
+
+                <feGaussianBlur stdDeviation="100 0"></feGaussianBlur>
+            </filter>
+        </svg>
+
+        <span filter-content="S">Bring your pet here</span>
+    </div>
+    <section>
+        <img id="img" src="/images/shelter.png">
+        <section id="text">
+            <p>If you have to go on vacation and you don't know where to "leave" your pet or you do not have anyone to take care of it, bring it to us.</p>
+            <p>We have a special part of our shelter with multiple little rooms waiting for your dog or cat. We take extra special care of them.</p>
+        </section>
+    </section>
+
+
+    <br><br><br>
+
+    <main>
+        <form id="survey-form">
+
+            <p id="description"><em>Please complete the form below and submit it to us. </em></p>
+
+            <div id="todays-date">
+                <label class="main-label" for="todays-date">Today's Date: </label>
+                <select name="day">
+                    <option value="day">Day</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <select name="month">
+                    <option value="month">Month</option>
+                    <option value="january">January</option>
+                    <option value="february">February</option>
+                    <option value="march">March</option>
+                    <option value="april">April</option>
+                    <option value="may">May</option>
+                    <option value="june">June</option>
+                    <option value="july">July</option>
+                    <option value="august">August</option>
+                    <option value="september">September</option>
+                    <option value="october">October</option>
+                    <option value="november">November</option>
+                    <option value="december">December</option>
+                </select>
+                <select name="year">
+                    <option value="" e="year">Year</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+
+            <div id="dogName">
+                <label class="main-label" for="dogNameLabel">Name of the dog you bring to us: </label>
+                <input type="text" id="dogNameLabel" placeholder="Dog Name" required>
+            </div>
+
+
+
+            <div id="first-last-name">
+                <label class="main-label" id="name-label">First Name: </label>
+                <input type="text" id="name" placeholder="John" required>
+
+                <label class="main-label">Last Name: </label>
+                <input type="text" id="lastName" placeholder="Smith" required>
+            </div>
+
+            <div id="gender">
+                <input type="radio" id="male" name="gender" value="1" required>
+                <label class="main-label" for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="2" required>
+                <label class="main-label" for="female">Female</label>
+            </div>
+
+
+            <div id="address">
+                <label class="main-label" for="address1">Address: </label>
+                <input type="text" id="address1" size="30" placeholder="Enter your address here">
+
+
+                <label class="main-label" for="town">Town: </label>
+                <input type="text" id="town" size="15" placeholder="Your town">
+
+                <label class="main-label" for="postcode">Postcode: </label>
+                <input type="text" id="postcode" size="10" placeholder="Postcode">
+
+            </div>
+
+
+            <div id="email-phone">
+                <label class="main-label" id="phone-label" for="phone">Phone: </label>
+                <input type="tel" id="phone" placeholder="e.g. 0784522865">
+
+                <label class="main-label" id="email-label" for="email">Email: </label>
+                <input type="email" id="email" placeholder="e.g. youremail@example.com" required size="35">
+
+            </div>
+
+
+            <div id="housing">
+                <label class="main-label">What type of housing you reside?</label>
+                <select id="dropdown">
+                    <option disabled selected>Select an option</option>
+                    <option value="apt">Apt / Condo</option>
+                    <option value="house">House</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+
+            <div id="prepare">
+                <label class="main-label">Tell us important information about your pet</label>
+            </div>
+            <div id="textarea">
+                <textarea id="comments" rows="10" cols="70" placeholder=" Write here what your pet loves to eat, the dates you want us to take care of it, it's allergies etc."></textarea>
+            </div>
+
+            <div id="button">
+                <button type="submit" id="submit">Submit</button>
+            </div>
+
+
+        </form>
+    </main>
+
+
+</body>
+
+</html>
