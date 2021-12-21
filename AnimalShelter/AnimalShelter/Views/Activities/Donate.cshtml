@@ -1,5 +1,6 @@
-﻿
-@*@{
+
+﻿@model DonationViewModel;
+@{
     ViewData["Title"] = "Donate";
     Layout = "~/Views/Shared/_layout.cshtml";
 }
@@ -18,31 +19,21 @@
 </head>
 
 <body class="bg-light">
-    <h2 style="margin-top: 30px; text-shadow: 1px 1px 2px black; font-weight: bolder; background-color: rgb(216, 216, 216); border-radius: 10px;text-align: center;">Donation Page</h2>
-    <hr>
-    <br>
-    <div>
-        <h3 id="amount">Type the amount below:</h3><br>
-        <input type="number" class="amountPost" name="sum" value="10" /> €
-    </div>
-    <br>
-    <div>
-        <input type="checkbox" name="check" id="check1" />
-        <label for="check" style="font-weight: bold; font-size: larger;">Make my donation</label>
-    </div>
-    <br><br>
 
-    <div class="container-fluid">
-        <h3 style="text-align: center; font-weight: bolder;">Personal Info</h3>
+    <form id="donForm" asp-action="ConfirmDonation" class="form-group">
+        <h2 style="margin-top: 80px; text-shadow: 1px 1px 2px black; font-weight: bolder; background-color: rgb(216, 216, 216); border-radius: 10px;text-align: center;">Donation Page</h2>
         <hr>
         <br>
-        <div>
-            <label id="info1" for="first_name">First Name</label><input type="text" id="first_name" name="first_name" value="" placeholder="Your First Name" /><br>
-            <label id="info1" for="last_name">Last Name</label><input type="text" id="last_name" name="last_name" value="" placeholder="Your Last Name" /><br>
-            <label id="info1" for="email">Email </label><input type="text" id="email" name="email" value="" placeholder="Your Email" /><br>
+        <div asp-validation-summary="All" >
+            <div>
+                <h3 id="amount">Type the amount below:</h3><br>
+                <input type="number" class="amountPost" asp-for="DonationSum" id="amountInput" /> €
+            </div>
             <br>
-            <label for="comments">I&#x27;d like my donation to be used for <span style="font-style: italic;">(optional)</span></label><br>
-            <textarea id="comments" name="comments"></textarea>
+            <div>
+                <input type="checkbox" id="check1" asp-for="MakeDonation" />
+                <label for="check" style="font-weight: bold; font-size: larger;">Make my donation</label>
+            </div>
             <br><br>
 
             <div class="container-fluid">
@@ -57,14 +48,23 @@
                     <label for="comments">I&#x27;d like my donation to be used for <span style="font-style: italic;">(optional)</span></label><br>
                     <textarea id="comments" name="comments" asp-for="OptionalInfo"></textarea>
                     <br><br>
-                    <input style="margin-right: 10px;" type="checkbox" asp-for="Terms" id="iAcceptPrivacyPolicy" /><label>I accept the terms and conditions.</label>
+
+                    <input style="margin-right: 10px;" type="checkbox" asp-for="Terms"  id="iAcceptPrivacyPolicy" /><label>I accept the terms and conditions.</label>
+
                 </div>
             </div>
         </div>
-    </div>
-    <div style="text-align: center;">
-        <p style="font-size: larger; font-weight: bold;font-style: italic;">Donation total:</p><span id="totalDonation"> € 10</span>
-    </div>
+        <div class="form-floating mb-2">
+            <select class="form-control" asp-for="SelectedPaymentMethod" asp-items="@(new SelectList(Model.PaymentMethods))" required>
+                <option selected disabled value="">Select a payment method</option>
+            </select>
+            <label for="@Model.SelectedPaymentMethod">Payment Selected</label>
+        </div>
+        <div style="text-align: center;">
+            <p style="font-size: larger; font-weight: bold;font-style: italic;">Donation total:</p><span id="totalDonation">  €</span>
+        </div>
+        <button type="submit" class="btn btn-lg btn-dark active" form="donForm" aria-pressed="true">Donate</button>
+    </form>
 
     <div class="howWeUseDonations" style="margin-top: 80px;">
         <h3 style="text-align: center; font-weight: bolder;">How we put your donation to work</h3>
@@ -106,6 +106,7 @@
         <p style="margin-top: 10px; margin-bottom: 15px;"><strong>Rescue Paws</strong><br /><strong>RON:</strong> RO64INGB0005599906112602<br /><strong>Euro:</strong> RO45INGB0078999906534312<br /></p>
     </div>
 
+
     <script>
         var quantity = document.getElementById('amountInput');
         var spanOutput = document.getElementById('totalDonation');
@@ -118,5 +119,5 @@
     </script>
 
 </body>
-
 </html>*@
+
