@@ -13,5 +13,6 @@ namespace AnimalShelter.ViewModels
         public string? PhoneNumber { get; set; }
         public List<AdoptionPaperDTO> Adoptions { get; set; }
         public List<DonationDTO> Donations { get; set; }
+        public List<AdoptionPaperDTO> Hostings { get; set; }
     }
 }

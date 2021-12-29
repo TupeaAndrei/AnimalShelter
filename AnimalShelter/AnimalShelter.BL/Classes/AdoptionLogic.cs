@@ -33,6 +33,19 @@ namespace AnimalShelter.BL.Classes
             _mapper = mapper;
         }
 
+        public async Task FinishAdoptionProcess(AdoptionPaperDTO adoptionPaperDTO, AnimalDTO animalDTO)
+        {
+            try
+            {
+                await AddAdoptionPaper(adoptionPaperDTO);
+                await RemoveAnimalFromShelter(animalDTO);
+            }
+            catch (DbUpdateException)
+            {
+                throw;
+            }
+        }
+
         public async Task AddAdoptionPaper(AdoptionPaperDTO adoptionPaperDTO)
         {
             if (adoptionPaperDTO == null)

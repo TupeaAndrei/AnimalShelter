@@ -70,8 +70,31 @@ namespace AnimalShelter.BL.Classes
 
         public async Task<List<AnimalDTO>> GetAll()
         {
-            var results = _mapper.Map<List<AnimalDTO>>(await _careRepository.GetAll());
+            var results = _mapper.Map<List<AnimalDTO>>(await _animalRepository.GetAll());
             return results;
+        }
+
+        public async Task<AnimalDTO> GetByName(string name)
+        {
+            if (name == null)
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+            AnimalDTO result;
+            try
+            {
+                var results = _mapper.Map<List<AnimalDTO>>(await _animalRepository.GetAll());
+                result = results.FirstOrDefault(a => a.Name == name);
+                if (result == null)
+                {
+                    throw new DbUpdateException();
+                }
+                return result;
+            }
+            catch(DbUpdateException)
+            {
+                throw;
+            }
         }
 
         public async Task RemoveAnimal(AnimalDTO animalDTO)

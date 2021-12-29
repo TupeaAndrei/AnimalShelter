@@ -9,8 +9,8 @@ namespace AnimalShelter.ViewModels
     public class AdoptionViewModel
     {
         public DateTime CurrentDate { get; set; }
-        public List<AnimalDTO> Animals { get; set; }
-        public AnimalDTO SelectedAnimal { get; set; }
+        public List<string> Animals { get; set; }
+        public string SelectedAnimal { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Gender { get; set; }
