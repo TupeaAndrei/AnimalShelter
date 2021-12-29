@@ -116,5 +116,31 @@ namespace AnimalShelter.BL.Classes
                 throw;
             }
         }
+
+        public async Task<List<AdoptionPaperDTO>> GetVisitorsAdoptions(int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new ArgumentNullException(nameof(id));
+                }
+                var results = await _adoptionRepository.GetAll();
+                var finalResults = results.Where(a => a.VisiterID == id).ToList();
+                if (finalResults == null)
+                {
+                    throw new DbUpdateException();
+                }
+                return _mapper.Map<List<AdoptionPaperDTO>>(finalResults);
+            }
+            catch(ArgumentNullException)
+            {
+                throw;
+            }
+            catch(DbUpdateException)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -14,5 +14,6 @@ namespace AnimalShelter.BL.Interfaces
         public Task<List<MedicalJournalDTO>> GetMedicalJournalDTOForAnimal(AnimalDTO animalDTO);
         public Task<EmployeeDTO> GetResponsibleEmployee(AnimalDTO animalDTO);
         public Task FinishAdoptionProcess(AdoptionPaperDTO adoptionPaperDTO, AnimalDTO animalDTO);
+        public Task<List<AdoptionPaperDTO>> GetVisitorsAdoptions(int id);
     }
 }

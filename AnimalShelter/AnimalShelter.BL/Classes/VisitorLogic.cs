@@ -62,6 +62,30 @@ namespace AnimalShelter.BL.Classes
             return visitorDTO;
         }
 
+        public async Task<VisitorDTO> GetVisitorByEmail(string email)
+        {
+            List<Visitor> visitors = new();
+            Visitor visitor = new();
+            try
+            {
+                visitors = await _visitorRepository.GetAll();
+                visitor = visitors.FirstOrDefault(v => v.Email == email);
+                if (visitor == null)
+                {
+                    throw new ArgumentNullException(nameof(visitor));
+                }
+                return _mapper.Map<VisitorDTO>(visitor);
+            }
+            catch(ArgumentNullException)
+            {
+                throw;
+            }
+            catch(DbUpdateException)
+            {
+                throw;
+            }
+        }
+
         public async Task RemoveVisitor(VisitorDTO visitorDTO)
         {
             if (visitorDTO == null)

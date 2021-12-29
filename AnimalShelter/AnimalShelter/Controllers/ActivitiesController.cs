@@ -56,8 +56,26 @@ namespace AnimalShelter.Controllers
                 var month = Request.Form["month"];
                 var year = Request.Form["year"];
                 var date = new System.DateTime(int.Parse(year),int.Parse(month), int.Parse(day));
-                var visitor = await _visitorLogic.GetVisitorByNameAndEmail(model.FirstName, model.Email);
-                var animal = await _animalLogic.GetByName(model.SelectedAnimal);
+                VisitorDTO visitor = new();
+                AnimalDTO animal = new();
+                try
+                {
+                    visitor = await _visitorLogic.GetVisitorByNameAndEmail(model.FirstName, model.Email);
+                    animal = await _animalLogic.GetByName(model.SelectedAnimal);
+                }
+                catch(DbUpdateException)
+                {
+                    if (animal == null)
+                    {
+                        _notyf.Error("Database search returned no results for this animal");
+                        return RedirectToAction("Index", "Home");
+                    }
+                    if (visitor == null)
+                    {
+                        _notyf.Error("Database search returned no results for this visitor");
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
                 var adoptionPaper = new AdoptionPaperDTO
                 {
                     AdoptionReason = model.AdoptionReaseon,
