@@ -13,6 +13,7 @@ namespace AnimalShelter.BL.Interfaces
         public Task RemoveDonation(DonationDTO donationDTO);
         public Task<DonationDTO> GetById(int id);
         public Task<List<DonationDTO>> GetDonations();
+        public Task<List<DonationDTO>> GetDonationsFromUser(int id);
 
     }
 }

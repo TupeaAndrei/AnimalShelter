@@ -33,6 +33,19 @@ namespace AnimalShelter.BL.Classes
             _mapper = mapper;
         }
 
+        public async Task FinishAdoptionProcess(AdoptionPaperDTO adoptionPaperDTO, AnimalDTO animalDTO)
+        {
+            try
+            {
+                await AddAdoptionPaper(adoptionPaperDTO);
+                await RemoveAnimalFromShelter(animalDTO);
+            }
+            catch (DbUpdateException)
+            {
+                throw;
+            }
+        }
+
         public async Task AddAdoptionPaper(AdoptionPaperDTO adoptionPaperDTO)
         {
             if (adoptionPaperDTO == null)
@@ -97,6 +110,32 @@ namespace AnimalShelter.BL.Classes
             try
             {
                 await _animalRepository.Delete(animalDTO.AnimalID);
+            }
+            catch(DbUpdateException)
+            {
+                throw;
+            }
+        }
+
+        public async Task<List<AdoptionPaperDTO>> GetVisitorsAdoptions(int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new ArgumentNullException(nameof(id));
+                }
+                var results = await _adoptionRepository.GetAll();
+                var finalResults = results.Where(a => a.VisiterID == id).ToList();
+                if (finalResults == null)
+                {
+                    throw new DbUpdateException();
+                }
+                return _mapper.Map<List<AdoptionPaperDTO>>(finalResults);
+            }
+            catch(ArgumentNullException)
+            {
+                throw;
             }
             catch(DbUpdateException)
             {

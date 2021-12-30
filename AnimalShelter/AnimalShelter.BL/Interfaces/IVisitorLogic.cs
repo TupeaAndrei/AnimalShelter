@@ -12,5 +12,6 @@ namespace AnimalShelter.BL.Interfaces
         Task<VisitorDTO> AddVisitor(VisitorDTO visitorDTO);
         Task RemoveVisitor(VisitorDTO visitorDTO);
         Task<VisitorDTO> GetVisitorByNameAndEmail(string name, string email);
+        Task<VisitorDTO> GetVisitorByEmail(string email);
     }
 }

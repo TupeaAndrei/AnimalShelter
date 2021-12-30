@@ -20,5 +20,8 @@ namespace AnimalShelter.DAL.Entities
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
+        public string Gender { get; set; }
     }
+
 }

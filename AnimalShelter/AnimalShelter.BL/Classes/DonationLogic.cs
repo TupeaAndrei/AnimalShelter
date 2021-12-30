@@ -62,6 +62,32 @@ namespace AnimalShelter.BL.Classes
             return dtos;
         }
 
+        public async Task<List<DonationDTO>> GetDonationsFromUser(int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new ArgumentNullException(nameof(id));
+                }
+                var results = await _donationRepository.GetAll();
+                var finalResults = results.Where(a => a.VisitorID == id).ToList();
+                if (finalResults == null)
+                {
+                    throw new DbUpdateException();
+                }
+                return _mapper.Map<List<DonationDTO>>(finalResults);
+            }
+            catch (ArgumentNullException)
+            {
+                throw;
+            }
+            catch (DbUpdateException)
+            {
+                throw;
+            }
+        }
+
         public async Task RemoveDonation(DonationDTO donationDTO)
         {
             try

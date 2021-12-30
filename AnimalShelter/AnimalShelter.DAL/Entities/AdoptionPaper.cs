@@ -28,6 +28,14 @@ namespace AnimalShelter.DAL.Entities
 
         public virtual Animal Animal { get; set; }
         public virtual Visitor Visitor { get; set; }
+        public string Adresss { get; set; }
+        public string Town { get; set; }
+        public string PostCode { get; set; }
+        public string AdoptionReason { get; set; }
+        public string? Allergy { get; set; }
+        public int PetCount { get; set; }
+        public string HouseType { get; set; }
+        public string? Preparations { get; set; }
 
     }
 }

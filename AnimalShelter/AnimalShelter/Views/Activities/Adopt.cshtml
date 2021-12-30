@@ -1,4 +1,4 @@
-﻿
+﻿@model AdoptionViewModel
 @{
     ViewData["Title"] = "Adopt";
     Layout = "~/Views/Shared/_layout.cshtml";
@@ -239,14 +239,14 @@
     <br><br><br>
 
     <main>
-        <form id="survey-form">
+        <form id="survey-form" asp-action="ConfirmAdoption">
 
             <p id="description"><em>Thank you for wishing to offer a rescue dog a home! Please could you complete the form below and submit it to us. </em></p>
            
 
             <div id="todays-date">
                 <label class="main-label" for="todays-date">Today's Date: </label>
-                <select name="day">
+                <select id="dayDropDown" name="day" asp-for="CurrentDate.Day">
                     <option value="day">Day</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -280,22 +280,22 @@
                     <option value="30">30</option>
                     <option value="31">31</option>
                 </select>
-                <select name="month">
+                <select name="month" id="monthDropDown" asp-for="CurrentDate.Month">
                     <option value="month">Month</option>
-                    <option value="january">January</option>
-                    <option value="february">February</option>
-                    <option value="march">March</option>
-                    <option value="april">April</option>
-                    <option value="may">May</option>
-                    <option value="june">June</option>
-                    <option value="july">July</option>
-                    <option value="august">August</option>
-                    <option value="september">September</option>
-                    <option value="october">October</option>
-                    <option value="november">November</option>
-                    <option value="december">December</option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
                 </select>
-                <select name="year">
+                <select name="year" id="yearDropDown" asp-for="CurrentDate.Year">
                     <option value="" e="year">Year</option>
                     <option value="2012">2012</option>
                     <option value="2013">2013</option>
@@ -312,50 +312,51 @@
                 </select>
             </div>
 
-            <div id="dogName">
-                <label class="main-label" for="dogNameLabel">Name of the dog you wish to adopt: </label>
-                <input type="text" id="dogNameLabel" placeholder="Dog Name" required>
+            <div>
+                <select class="form-control" asp-for="SelectedAnimal" asp-items="@(new SelectList(Model.Animals))" required>
+                    <option selected disabled value="">Select an animal</option>
+                </select>
             </div>
 
 
 
             <div id="first-last-name">
                 <label class="main-label" id="name-label">First Name: </label>
-                <input type="text" id="name" placeholder="John" required>
+                <input type="text" id="name" placeholder="John" asp-for="FirstName" required>
 
                 <label class="main-label">Last Name: </label>
-                <input type="text" id="lastName" placeholder="Smith" required>
+                <input type="text" id="lastName" placeholder="Smith" asp-for="LastName" required>
             </div>
 
             <div id="gender">
-                <input type="radio" id="male" name="gender" value="1" required>
+                <input type="radio" id="male" name="gender" value="male" required>
                 <label class="main-label" for="male">Male</label>
 
-                <input type="radio" id="female" name="gender" value="2" required>
+                <input type="radio" id="female" name="gender" value="female" required>
                 <label class="main-label" for="female">Female</label>
             </div>
 
 
             <div id="address">
                 <label class="main-label" for="address1">Address: </label>
-                <input type="text" id="address1" size="30" placeholder="Enter your address here">
+                <input type="text" id="address1" size="30" placeholder="Enter your address here" asp-for="Adress" required>
 
 
                 <label class="main-label" for="town">Town: </label>
-                <input type="text" id="town" size="15" placeholder="Your town">
+                <input type="text" id="town" size="15" placeholder="Your town" asp-for="Town" required>
 
                 <label class="main-label" for="postcode">Postcode: </label>
-                <input type="text" id="postcode" size="10" placeholder="Postcode">
+                <input type="text" id="postcode" size="10" placeholder="Postcode" asp-for="PostCode" required>
 
             </div>
 
 
             <div id="email-phone">
                 <label class="main-label" id="phone-label" for="phone">Phone: </label>
-                <input type="tel" id="phone" placeholder="e.g. 0784522865">
+                <input type="tel" id="phone" placeholder="e.g. 0784522865" asp-for="PhoneNumber" required>
 
                 <label class="main-label" id="email-label" for="email">Email: </label>
-                <input type="email" id="email" placeholder="e.g. youremail@example.com" required size="35">
+                <input type="email" id="email" placeholder="e.g. youremail@example.com" required size="35" asp-for="Email">
 
             </div>
 
@@ -364,90 +365,84 @@
                 <ul><label class="main-label" for="age">Age of applicant:</label></ul>
 
                 <li>
-                    <input type="radio" id="u18" name="age" value="1" required>
+                    <input type="radio" id="u18" name="age" value="18" required>
                     <label for="u18">Under 18</label>
                 </li>
 
                 <li>
-                    <input type="radio" id="18" name="age" value="2" required>
+                    <input type="radio" id="18" name="age" value="24" required>
                     <label for="18">18 - 24</label>
                 </li>
 
                 <li>
-                    <input type="radio" id="25" name="age" value="3" required>
+                    <input type="radio" id="25" name="age" value="34" required>
                     <label for="25">25 - 34</label>
                 </li>
 
                 <li>
-                    <input type="radio" id="35" name="age" value="4" required>
+                    <input type="radio" id="35" name="age" value="44" required>
                     <label for="35">35 - 44</label>
                 </li>
 
                 <li>
-                    <input type="radio" id="45" name="age" value="5" required>
+                    <input type="radio" id="45" name="age" value="55" required>
                     <label for="45">45 and older</label>
                 </li>
 
             </div>
 
 
-            <div id="why">
-                <ul><label class="main-label" for="why">Why do you want to adopt a dog? Please check all that apply:</label></ul>
+            <div id="reason">
+                <ul><label class="main-label">Why do you want to adopt a dog? Please check all that apply:</label></ul>
                 <li>
-                    <input type="checkbox" name="reason" id="companion" value="companion">
+                    <input type="checkbox" name="AdoptionReaseon" id="companion" value="companion">
                     <label for="companion">Pet & Companion</label>
                 </li>
 
                 <li>
-                    <input type="checkbox" name="reason" id="gift" value="gift">
+                    <input type="checkbox" name="reason" id="gift" value="gift" asp-for="AdoptionReaseon">
                     <label for="gift">Gift</label>
                 </li>
 
                 <li>
-                    <input type="checkbox" name="reason" id="hunting" value="hunting">
+                    <input type="checkbox" name="reason" id="hunting" value="hunting" asp-for="AdoptionReaseon">
                     <label for="hunting">Hunting Dog</label>
                 </li>
 
                 <li>
-                    <input type="checkbox" name="reason" id="breeding" value="breeding">
+                    <input type="checkbox" name="reason" id="breeding" value="breeding" asp-for="AdoptionReaseon">
                     <label for="breeding">Breeding Dog</label>
                 </li>
 
                 <li>
-                    <input type="checkbox" name="reason" id="guard" value="guard">
+                    <input type="checkbox" name="reason" id="guard" value="guard" asp-for="AdoptionReaseon">
                     <label for="guard">Guard Dog</label>
                 </li>
 
                 <li>
-                    <input type="checkbox" name="reason" id="senior" value="senior">
+                    <input type="checkbox" name="reason" id="senior" value="senior" asp-for="AdoptionReaseon">
                     <label for="senior">For a Senior</label>
                 </li>
 
                 <li>
-                    <input type="checkbox" name="reason" id="child" value="child">
+                    <input type="checkbox" name="reason" id="child" value="child" asp-for="AdoptionReaseon">
                     <label for="child">For a Child</label>
                 </li>
 
             </div>
 
 
-            <div id="allergies">
-                <ul><label class="main-label" for="allergies">Is anyone in your household allergic to pets?</label></ul>
+            <div id="allergic">
+                <ul><label class="main-label">Is anyone in your household allergic to pets?</label></ul>
 
                 <li>
-                    <input type="radio" id="yes" name="allergy" value="1" required>
-                    <label for="yes">Yes</label>
+                    @Html.RadioButtonFor(m => m.Allergic, "Yes", new { id = "yes" }); <label>Yes</label>
+                </li>
+                    @Html.RadioButtonFor(m => m.Allergic, "No", new { id = "no" }); <label>No</label>
+                <li>
+                    @Html.RadioButtonFor(m => m.Allergic, "Sometimes", new { id = "sometimes" }); <label>Sometimes</label>
                 </li>
 
-                <li>
-                    <input type="radio" id="no" name="allergy" value="2" required>
-                    <label for="no">No</label>
-                </li>
-
-                <li>
-                    <input type="radio" id="sometimes" name="allergy" value="3" required>
-                    <label for="sometimes">Sometimes</label>
-                </li>
             </div>
 
 
@@ -457,17 +452,19 @@
                         How many pets are already in your household?
                     </label>
                 </ul>
-                <li><input type="number" id="number" min="1" max="10" placeholder="0"></li>
+                <li>
+                    @Html.TextBoxFor(m => m.PetCount, new { type = "number", min = "0", step = "0.01" })
+                </li>
             </div>
 
 
             <div id="housing">
                 <label class="main-label">What type of housing you reside?</label>
-                <select id="dropdown">
+                <select id="dropdown" asp-for="HouseType">
                     <option disabled selected>Select an option</option>
-                    <option value="apt">Apartment / Condo</option>
-                    <option value="house">House</option>
-                    <option value="other">Other</option>
+                    <option value="Appartment">Apartment / Condo</option>
+                    <option value="House">House</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
 
@@ -476,11 +473,11 @@
                 <label class="main-label">How did you prepare yourself?</label>
             </div>
             <div id="textarea">
-                <textarea id="comments" rows="10" cols="70" placeholder=" Write here how did you prepare yourself for adoption."></textarea>
+                <textarea id="comments" rows="10" cols="70" placeholder=" Write here how did you prepare yourself for adoption." asp-for="AdoptionReaseon"></textarea>
             </div>
 
             <div id="button">
-                <button type="submit" id="submit">Submit</button>
+                <button type="submit" id="submit" form="survey-form">Submit</button>
             </div>
 
 

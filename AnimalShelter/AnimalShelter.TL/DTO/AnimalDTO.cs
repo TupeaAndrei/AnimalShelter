@@ -15,5 +15,10 @@ namespace AnimalShelter.TL.DTO
         public int Age { get; set; }
         public DateTime RegistrationDate { get; set; }
         public string OptionalDetails { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
