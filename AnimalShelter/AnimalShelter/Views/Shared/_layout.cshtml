@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"  onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");">Home</a>
+                            <a class="nav-link active" aria-current="page" href="#" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");">Home</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -30,24 +30,27 @@
                                 About us
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">How it started</a></li>
-                                <li><a class="dropdown-item" href="#"  onclick="@("window.location.href='" + @Url.Action("Partners", "Home") + "'");">Our partners</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="@("window.location.href='" + @Url.Action("TheStart", "Home") + "'");">How it started</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="@("window.location.href='" + @Url.Action("Partners", "Home") + "'");">Our partners</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"  onclick="@("window.location.href='" + @Url.Action("Donate", "Activities") + "'");">Donate</a>
+                            <a class="nav-link" href="#" onclick="@("window.location.href='" + @Url.Action("Donate", "Activities") + "'");">Donate</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"  onclick="@("window.location.href='" + @Url.Action("Adopt", "Activities") + "'");">Adopt</a>
+                            <a class="nav-link" href="#" onclick="@("window.location.href='" + @Url.Action("Adopt", "Activities") + "'");">Adopt</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"  onclick="@("window.location.href='" + @Url.Action("Contact", "Home") + "'");">Contact</a>
+                            <a class="nav-link" href="#" onclick="@("window.location.href='" + @Url.Action("Hotel", "Home") + "'");">Pet Hotel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"  onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");"><ins>Login</ins></a>
+                            <a class="nav-link" href="#" onclick="@("window.location.href='" + @Url.Action("Contact", "Home") + "'");">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"  onclick="@("window.location.href='" + @Url.Action("Register", "Account") + "'");">Register</a>
+                            <a class="nav-link" href="#" onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");"><ins>Login</ins></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="@("window.location.href='" + @Url.Action("Register", "Account") + "'");">Register</a>
                         </li>
                         <li class="nav-item">
                             <p class="nav-link">@ViewBag.Email</p>
