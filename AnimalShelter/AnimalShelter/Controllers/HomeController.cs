@@ -45,5 +45,15 @@ namespace AnimalShelter.Controllers
         {
             return View();
         }
+
+        public IActionResult TheStart()
+        {
+            return View();
+        }
+
+        public IActionResult Hotel()
+        {
+            return View();
+        }
     }
 }
