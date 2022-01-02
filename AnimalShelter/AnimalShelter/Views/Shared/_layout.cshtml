@@ -53,7 +53,16 @@
                             <a class="nav-link" href="#" onclick="@("window.location.href='" + @Url.Action("Register", "Account") + "'");">Register</a>
                         </li>
                         <li class="nav-item">
-                            <p class="nav-link">@ViewBag.Email</p>
+                            
+                            @if (this.User.Identity.Name != null)
+                            {
+                                <p class="nav-link" onclick="@("window.location.href='" + @Url.Action("Index","Profile") + "'");">@this.User.Identity.Name</p>
+                            }
+                            else
+                            {
+                            <p class="nav-link">
+                            </p>
+                            }
                         </li>
 
                     </ul>

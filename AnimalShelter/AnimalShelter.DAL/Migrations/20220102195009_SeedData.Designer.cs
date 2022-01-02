@@ -4,14 +4,16 @@ using AnimalShelter.DAL.Migrations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AnimalShelter.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220102195009_SeedData")]
+    partial class SeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,8 +37,8 @@ namespace AnimalShelter.DAL.Migrations
                     b.Property<string>("Allergy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("AnimalName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AnimalID")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -63,6 +65,8 @@ namespace AnimalShelter.DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AnimalID");
 
                     b.HasIndex("VisitorID");
 
@@ -634,7 +638,7 @@ namespace AnimalShelter.DAL.Migrations
                         {
                             JournalID = 1,
                             AnimalID = 1,
-                            Date = new DateTime(2022, 1, 2, 22, 3, 4, 499, DateTimeKind.Local).AddTicks(6645),
+                            Date = new DateTime(2022, 1, 2, 21, 50, 9, 170, DateTimeKind.Local).AddTicks(2134),
                             Illness = "Diabetes"
                         });
                 });
@@ -667,9 +671,17 @@ namespace AnimalShelter.DAL.Migrations
 
             modelBuilder.Entity("AnimalShelter.DAL.Entities.AdoptionPaper", b =>
                 {
+                    b.HasOne("AnimalShelter.DAL.Entities.Animal", "Animal")
+                        .WithMany()
+                        .HasForeignKey("AnimalID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("AnimalShelter.DAL.Entities.Visitor", "Visitor")
                         .WithMany()
                         .HasForeignKey("VisitorID");
+
+                    b.Navigation("Animal");
 
                     b.Navigation("Visitor");
                 });

@@ -9,7 +9,7 @@ namespace AnimalShelter.TL.DTO
     public class AdoptionPaperDTO
     {
         public int Id { get; set; }
-        public int AnimalID { get; set; }
+        public string AnimalName { get; set; }
         public int VisiterID { get; set; }
         public DateTime Date { get; set; }
         public string Adresss { get; set; }

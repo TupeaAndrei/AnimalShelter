@@ -1,4 +1,4 @@
-﻿
+﻿@model ProfileViewModel
 @{
     ViewData["Title"] = "Personal Page";
     Layout = "~/Views/Shared/_layout.cshtml";
@@ -48,32 +48,20 @@
                     <th scope="col">#</th>
                     <th scope="col">Pet Name</th>
                     <th scope="col">Adoption Date</th>
-                    <th scope="col">Dog/Cat</th>
-                    <th scope="col">Race</th>
+                    <th scope="col">Adoption Reason</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach (var item in Model.Adoptions)
+                {
                 <tr style="outline: thin solid">
-                    <td>1</td>
-                    <td>Content 2</td>
-                    <td>Content 3</td>
-                    <td>Content 4</td>
-                    <td>Content 5</td>
+                    <td>@Html.DisplayFor(m => item.Id)</td>
+                    <td>@Html.DisplayFor(m => item.AnimalName)</td>
+                    <td>@Html.DisplayFor(m => item.Date)</td>
+                    <td>@Html.DisplayFor(m => item.AdoptionReason)</td>
                 </tr>
-                <tr style="outline: thin solid">
-                    <td>2</td>
-                    <td>Lorem ipsum dolor sit amet.</td>
-                    <td>Content 3</td>
-                    <td>Content 4</td>
-                    <td>Content 5</td>
-                </tr>
-                <tr style="outline: thin solid">
-                    <td>3</td>
-                    <td>Content 2</td>
-                    <td>Content 3</td>
-                    <td>Content 4</td>
-                    <td>Content 5</td>
-                </tr>
+                }
+
 
             </tbody>
         </table>
@@ -97,28 +85,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach (var item in Model.Donations)
+                {
                 <tr style="outline: thin solid">
-                    <td>1</td>
-                    <td>Content 2</td>
-                    <td>Content 3</td>
-                    <td>Content 4</td>
+                    <td>@Html.DisplayFor(m => item.DonationID)</td>
+                    <td>@Html.DisplayFor(m => item.Sum)</td>
+                    <td>@Html.DisplayFor(m => item.Date)</td>
+                    <td>@Html.DisplayFor(m => item.PaymentMethod)</td>
 
                 </tr>
-                <tr style="outline: thin solid">
-                    <td>2</td>
-                    <td>Lorem ipsum dolor sit amet.</td>
-                    <td>Content 3</td>
-                    <td>Content 4</td>
-
-                </tr>
-                <tr style="outline: thin solid">
-                    <td>3</td>
-                    <td>Content 2</td>
-                    <td>Content 3</td>
-                    <td>Content 4</td>
-
-                </tr>
-
+                }
             </tbody>
         </table>
     </div>

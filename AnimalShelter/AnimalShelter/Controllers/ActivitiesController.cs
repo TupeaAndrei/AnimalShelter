@@ -88,7 +88,7 @@ namespace AnimalShelter.Controllers
                     HouseType = model.HouseType,
                     Preparations = model.Preparations,
                     Town = model.Town,
-                    AnimalID = animal.AnimalID
+                    AnimalName = model.SelectedAnimal
                 };
                 try
                 {

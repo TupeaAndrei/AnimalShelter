@@ -16,8 +16,7 @@ namespace AnimalShelter.DAL.Entities
         /// </summary>
         [Key]
         public int Id { get; set; }
-        [ForeignKey("Animal")]
-        public int AnimalID { get; set; }
+        public string AnimalName { get; set; }
 
         [ForeignKey("Visiter")]
         [Required]
@@ -26,7 +25,6 @@ namespace AnimalShelter.DAL.Entities
         [Required(ErrorMessage = "This field is required!")]
         public DateTime Date { get; set; }
 
-        public virtual Animal Animal { get; set; }
         public virtual Visitor Visitor { get; set; }
         public string Adresss { get; set; }
         public string Town { get; set; }
