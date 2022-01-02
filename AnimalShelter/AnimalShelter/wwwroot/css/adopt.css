@@ -1,10 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Underdog&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
 
-html,
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 #survey-form {
     display: flex;

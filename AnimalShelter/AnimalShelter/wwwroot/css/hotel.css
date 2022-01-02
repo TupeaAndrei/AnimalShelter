@@ -19,7 +19,6 @@
 
 span {
     position: relative;
-    font-family: "Avenir Next", sans-serif;
     font-weight: 900;
     font-size: 64px;
     text-transform: uppercase;
@@ -48,11 +47,6 @@ svg {
 
 @import url('https://fonts.googleapis.com/css?family=Underdog&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
-
-html,
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 #survey-form {
     display: flex;
