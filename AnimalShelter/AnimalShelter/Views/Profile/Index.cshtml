@@ -68,6 +68,41 @@
     </div><br>
 
     <br><br><br><br>
+
+    <div id="wrapper">
+        <div id="container">
+            <h3>These are the hostings you made</h3><br><br>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <table class="table scroll table-striped table-dark">
+            <thead>
+                <tr style="outline: thin solid;">
+                    <th scope="col">#</th>
+                    <th scope="col">Pet Name</th>
+                    <th scope="col">Hosting Date</th>
+                    <th scope="col">Hosting Reason</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Hostings)
+                {
+                <tr style="outline: thin solid">
+                    <td>@Html.DisplayFor(m => item.Id)</td>
+                    <td>@Html.DisplayFor(m => item.AnimalName)</td>
+                    <td>@Html.DisplayFor(m => item.Date)</td>
+                    <td>@Html.DisplayFor(m => item.AdoptionReason)</td>
+                </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div><br>
+
+    <br><br><br><br>
+
     <div id="wrapper">
         <div id="container">
             <h3>These are the donations you made</h3><br><br>

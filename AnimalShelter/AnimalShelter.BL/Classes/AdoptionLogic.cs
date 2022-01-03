@@ -126,7 +126,7 @@ namespace AnimalShelter.BL.Classes
                     throw new ArgumentNullException(nameof(id));
                 }
                 var results = await _adoptionRepository.GetAll();
-                var finalResults = results.Where(a => a.VisiterID == id).ToList();
+                var finalResults = results.Where(a => a.VisiterID == id && a.Hosting == null).ToList();
                 if (finalResults == null)
                 {
                     throw new DbUpdateException();
@@ -141,6 +141,52 @@ namespace AnimalShelter.BL.Classes
             {
                 throw;
             }
+        }
+
+        public async Task<List<AdoptionPaperDTO>> GetVisitorsHostings(int id)
+        {
+
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new ArgumentNullException(nameof(id));
+                }
+                var results = await _adoptionRepository.GetAll();
+                var finalResults = results.Where(a => a.VisiterID == id && a.Hosting != null).ToList();
+                if (finalResults == null)
+                {
+                    throw new DbUpdateException();
+                }
+                return _mapper.Map<List<AdoptionPaperDTO>>(finalResults);
+            }
+            catch (ArgumentNullException)
+            {
+                throw;
+            }
+            catch (DbUpdateException)
+            {
+                throw;
+            }
+        }
+
+        public async Task<List<AdoptionPaperDTO>> GetAll()
+        {
+            return _mapper.Map<List<AdoptionPaperDTO>>(await _adoptionRepository.GetAll());
+        }
+
+        public async Task<List<AdoptionPaperDTO>> GetAdoptions()
+        {
+            var intialResults = _mapper.Map<List<AdoptionPaperDTO>>(await GetAll());
+            var finalResults = intialResults.Where(a => a.Hosting == null).ToList();
+            return finalResults;
+        }
+
+        public async Task<List<AdoptionPaperDTO>> GetHostings()
+        {
+            var initialResults = _mapper.Map<List<AdoptionPaperDTO>>(await GetAll());
+            var finalResults = initialResults.Where(a => a.Hosting != null).ToList();
+            return finalResults;
         }
     }
 }

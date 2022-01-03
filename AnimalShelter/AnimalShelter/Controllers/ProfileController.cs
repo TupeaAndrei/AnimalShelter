@@ -30,11 +30,13 @@ namespace AnimalShelter.Controllers
         {
             VisitorDTO currentUser = new();
             List<AdoptionPaperDTO> adoptions = new();
+            List<AdoptionPaperDTO> hostings = new();
             List<DonationDTO> donations = new();
             try
             {
                 currentUser = await _visitorLogic.GetVisitorByEmail(this.User.Identity.Name);
                 adoptions = await _adoptionLogic.GetVisitorsAdoptions(currentUser.VisitorID);
+                hostings = await _adoptionLogic.GetVisitorsHostings(currentUser.VisitorID);
                 donations = await _donationLogic.GetDonationsFromUser(currentUser.VisitorID);
             }
             catch(ArgumentNullException)
@@ -47,7 +49,7 @@ namespace AnimalShelter.Controllers
                 _notyf.Error("Something went wrong while loading the page!");
                 return RedirectToAction("Index", "home");
             }
-            var model = new ProfileViewModel() {Email = this.User.Identity.Name, Name = currentUser.Name,PhoneNumber = currentUser.PhoneNumber,Adoptions = adoptions ,Donations = donations};
+            var model = new ProfileViewModel() {Email = this.User.Identity.Name, Name = currentUser.Name,PhoneNumber = currentUser.PhoneNumber,Adoptions = adoptions ,Donations = donations, Hostings = hostings};
             return View(model);
         }
     }

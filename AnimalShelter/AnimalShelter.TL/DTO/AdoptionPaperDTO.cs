@@ -20,5 +20,6 @@ namespace AnimalShelter.TL.DTO
         public int PetCount { get; set; }
         public string HouseType { get; set; }
         public string? Preparations { get; set; }
+        public string? Hosting { get; set; }
     }
 }

@@ -31,6 +31,17 @@ namespace AnimalShelter.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Hotel()
+        {
+            var model = new AdoptionViewModel();
+            if (this.User.Identity.Name != null)
+            {
+                model.Email = this.User.Identity.Name;
+            }
+            model.CurrentDate = new System.DateTime();
+            return View(model);
+        }
+
         public async Task<IActionResult> Adopt()
         {
             var animals = await _animalLogic.GetAll();
@@ -106,6 +117,57 @@ namespace AnimalShelter.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public async Task<IActionResult> ConfirmHotel(AdoptionViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var day = Request.Form["day"];
+                var month = Request.Form["month"];
+                var year = Request.Form["year"];
+                var date = new System.DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+                VisitorDTO visitor = new();
+                AnimalDTO animal = new AnimalDTO { Age = 1, Name = model.SelectedAnimal, RegistrationDate = model.CurrentDate, OptionalDetails = model.Preparations, Race = "Unknown", Type = "House animal" };
+                try
+                {
+                    visitor = await _visitorLogic.GetVisitorByEmail(model.Email);
+                }
+                catch (DbUpdateException)
+                {
+                    if (visitor == null)
+                    {
+                        _notyf.Error("Database search returned no results for this visitor");
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                var adoptionPaper = new AdoptionPaperDTO
+                {
+                    AdoptionReason = model.AdoptionReaseon,
+                    PostCode = model.PostCode,
+                    Adresss = model.Adress,
+                    VisiterID = visitor.VisitorID,
+                    Date = date,
+                    HouseType = model.HouseType,
+                    Preparations = model.Preparations,
+                    Town = model.Town,
+                    AnimalName = model.SelectedAnimal,
+                    Hosting = "Yes"
+                };
+                try
+                {
+                    await _adoptionLogic.AddAdoptionPaper(adoptionPaper);
+                }
+                catch (DbUpdateException)
+                {
+                    _notyf.Error("Something went wrong");
+                    return RedirectToAction("Index", "Home");
+                }
+                _notyf.Success("Enjoy your day and Thank you!");
+                return RedirectToAction("Index", "Home");
+            }
+            _notyf.Error("Something went wrong");
+            return RedirectToAction("Index", "Home");
+        }
+
         public IActionResult Donate()
         {
             var model = new DonationViewModel();
@@ -136,5 +198,7 @@ namespace AnimalShelter.Controllers
             _notyf.Success("Thank you for you donation! You Are Awesome!");
             return RedirectToAction("Index", "Home");
         }
+
+
     }
 }
